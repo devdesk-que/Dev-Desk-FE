@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PrivateRoute from './PrivateRoute';
 import { Route } from 'react-router-dom';
 import Login from './components/Login';
