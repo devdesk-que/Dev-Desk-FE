@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import SideBar from './dashboard/SideBar';
 
 class App extends Component {
   componentDidMount() {}
@@ -7,6 +8,7 @@ class App extends Component {
   render() {
     return (
       <>
+        <SideBar />
         {this.props.loading ? (
           <p>Loading Tickets...</p>
         ) : (
