@@ -1,20 +1,22 @@
 import axios from 'axios';
-import useAuth from '../../components/authentication/useAuth';
+// import useAuth from '../../components/authentication/useAuth';
 
 export const LOADING = 'LOADING';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const GET_SUCCESS = 'GET_SUCCESS';
-export const ERRORS = 'ERRORS';
+export const ERROR = 'ERROR';
 
-export const login = (username, password) => async dispatch => {
+export const login = credentials => async dispatch => {
   dispatch({ type: LOADING });
 
-  return useAuth()
-    .post('https://devdesk-backend.herokuapp.com/api/auth/login')
+  axios
+    .post('https://devdesk-backend.herokuapp.com/api/auth/login', credentials)
     .then(res => {
-      dispatch({ type: GET_SUCCESS, payload: res.data });
+      console.log('RES:', res);
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: ERRORS, payload: err.response.data });
+      console.log('ERR:', err.response);
+      dispatch({ type: ERROR, payload: err.response.data });
     });
 };

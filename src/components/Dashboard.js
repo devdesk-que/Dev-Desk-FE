@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <>
-        {this.props.fetching ? (
+        {this.props.loading ? (
           <p>Loading Tickets...</p>
         ) : (
           <h1>Ticket Component goes here</h1>
@@ -20,9 +20,8 @@ class App extends Component {
 const mapStateToProps = state => {
   console.log('DASHBOARD STATE:', state);
   return {
-    fetching: state.fetching,
-    error: state.error,
-    tickets: state.tickets
+    loading: state.devDeskReducer.loading,
+    error: state.devDeskReducer.error
   };
 };
 
