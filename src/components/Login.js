@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../store/actions';
+import Logo from '../assets/Logo';
 
 class Login extends Component {
   constructor() {
@@ -39,27 +40,36 @@ class Login extends Component {
     }
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        {error && <p className='error'>{error}</p>}
+      <div className='login-component'>
+        <Logo />
+        <h3 className='login-banner'>Welcome back!</h3>
 
-        <input
-          type='text'
-          name='username'
-          placeholder='Username'
-          value={username}
-          onChange={this.handleChange}
-        />
+        <form onSubmit={this.handleSubmit} className='login-form'>
+          {error && <p className='error'>{error}</p>}
 
-        <input
-          type='password'
-          name='password'
-          placeholder='Password'
-          value={password}
-          onChange={this.handleChange}
-        />
+          <input
+            type='text'
+            name='username'
+            placeholder='Username'
+            value={username}
+            onChange={this.handleChange}
+          />
 
-        {loading ? <p>Logging in...</p> : <button type='submit'>Login</button>}
-      </form>
+          <input
+            type='password'
+            name='password'
+            placeholder='Password'
+            value={password}
+            onChange={this.handleChange}
+          />
+
+          {loading ? (
+            <p>Logging in...</p>
+          ) : (
+            <button type='submit'>Login</button>
+          )}
+        </form>
+      </div>
     );
   }
 }
