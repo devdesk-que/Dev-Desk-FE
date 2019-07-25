@@ -5,6 +5,7 @@ export const LOADING = 'LOADING';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const GET_SUCCESS = 'GET_SUCCESS';
 export const ERROR = 'ERROR';
+export const NEW_USER_SUCCESS = 'NEW_USER_SUCCESS'
 
 export const login = credentials => async dispatch => {
   dispatch({ type: LOADING });
@@ -20,3 +21,17 @@ export const login = credentials => async dispatch => {
       dispatch({ type: ERROR, payload: err.response.data });
     });
 };
+
+export const createUser = newUserPacket => async dispatch => {
+  dispatch({ type: LOADING })
+
+  axios
+    .post('https://devdesk-backend.herokuapp.com/api/auth/register', newUserPacket)
+    .then(res => {
+      dispatch({ type: NEW_USER_SUCCESS, payload: res.data})
+    })
+    .catch(err => {
+      console.log('Err:', err.response)
+      dispatch({ type: ERROR, payload: err.response.data})
+    })
+}
