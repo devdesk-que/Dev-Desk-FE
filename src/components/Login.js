@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../store/actions';
 
@@ -21,17 +21,22 @@ class Login extends Component {
 
   handleSubmit = async evt => {
     evt.preventDefault();
-
+    console.log('IS AUTH:', this.props.isAuth);
     await this.props.login(this.state);
     // Awaits Login, goes through reducer and sets auth
     // if isAuth is true, right hand side of && runs
     // if isAuth is false, right hand will not run
-    this.props.isAuth && this.props.history.push('/dashboard');
+    // this.props.isAuth && this.props.history.push('/dashboard');
+    console.log('IS AUTH AFTER AWAIT:', this.props.isAuth);
   };
 
   render() {
     const { username, password } = this.state;
     const { loading, error } = this.props;
+
+    if (this.props.isAuth) {
+      return <Redirect to='/dashboard' />;
+    }
 
     return (
       <form onSubmit={this.handleSubmit}>

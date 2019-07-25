@@ -1,5 +1,5 @@
 import axios from 'axios';
-import useAuth from '../../components/authentication/useAuth';
+// import useAuth from '../../components/authentication/useAuth';
 
 export const LOADING = 'LOADING';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
