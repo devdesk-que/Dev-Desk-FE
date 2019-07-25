@@ -6,17 +6,17 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const GET_SUCCESS = 'GET_SUCCESS';
 export const ERROR = 'ERROR';
 
-export const login = (username, password) => async dispatch => {
+export const login = credentials => async dispatch => {
   dispatch({ type: LOADING });
 
   axios
-    .post('https://devdesk-backend.herokuapp.com/api/auth/login')
+    .post('https://devdesk-backend.herokuapp.com/api/auth/login', credentials)
     .then(res => {
-      console.log(res);
-      dispatch({ type: GET_SUCCESS, payload: res.data.payload });
+      console.log('RES:', res);
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log(err.response);
+      console.log('ERR:', err.response);
       dispatch({ type: ERROR, payload: err.response.data });
     });
 };

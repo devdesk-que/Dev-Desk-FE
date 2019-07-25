@@ -19,19 +19,16 @@ class Login extends Component {
     });
   };
 
-  handleSubmit = evt => {
+  handleSubmit = async evt => {
     evt.preventDefault();
 
-    const { username, password } = this.state;
-    this.props
-      .login(username, password)
-      .then(() => {
-        this.props.history.push('/');
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    await this.props.login(this.state);
+    // Awaits Login, goes through reducer and sets auth
+    // if isAuth is true, right hand side of && runs
+    // if isAuth is false, right hand will not run
+    this.props.isAuth && this.props.history.push('/dashboard');
   };
+
   render() {
     const { username, password } = this.state;
     const { loading, error } = this.props;
@@ -39,6 +36,7 @@ class Login extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         {error && <p className='error'>{error}</p>}
+
         <input
           type='text'
           name='username'
@@ -46,6 +44,7 @@ class Login extends Component {
           value={username}
           onChange={this.handleChange}
         />
+
         <input
           type='password'
           name='password'
@@ -53,6 +52,7 @@ class Login extends Component {
           value={password}
           onChange={this.handleChange}
         />
+
         {loading ? <p>Logging in...</p> : <button type='submit'>Login</button>}
       </form>
     );
@@ -60,8 +60,9 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => ({
-  loading: state.loading,
-  error: state.error
+  loading: state.devDeskReducer.loading,
+  error: state.devDeskReducer.error,
+  isAuth: state.devDeskReducer.isAuth
 });
 
 const mapDispatchToProps = {

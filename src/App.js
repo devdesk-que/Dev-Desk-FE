@@ -7,8 +7,8 @@ import Dashboard from './components/Dashboard';
 function App() {
   return (
     <div className='App'>
-      <PrivateRoute exact path='/' component={Dashboard} />
       <Route exact path='/login' component={Login} />
+      <PrivateRoute exact path='/dashboard' component={Dashboard} />
     </div>
   );
 }
