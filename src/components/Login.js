@@ -42,7 +42,9 @@ class Login extends Component {
     return (
       <div className='login-component'>
         <Logo />
-        <h3 className='login-banner'>Welcome back!</h3>
+        <h3 className='login-banner'>
+          You have problems. <br /> We have solutions. <br /> ...Sometimes
+        </h3>
 
         <form onSubmit={this.handleSubmit} className='login-form'>
           {error && <p className='error'>{error}</p>}
