@@ -9,8 +9,8 @@ function App() {
     <div className='App'>
       <Switch>
         <Route path='/adduser' component={AddUser} />
-        <Route path='/login' component={Login} />
         <PrivateRoute path='/dashboard' component={Dashboard} />
+        <Route path='/' component={Login} />
       </Switch>
     </div>
   );
