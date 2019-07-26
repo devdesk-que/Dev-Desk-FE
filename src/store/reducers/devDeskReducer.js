@@ -1,4 +1,4 @@
-import { LOADING, LOGIN_SUCCESS, GET_SUCCESS, ERROR, NEW_USER_SUCCESS } from '../actions';
+import { LOADING, LOGIN_SUCCESS, GET_SUCCESS, ERROR, NEW_USER_SUCCESS, NEW_USER_ERROR } from '../actions';
 
 const initialState = {
   ticket: {},
@@ -40,6 +40,14 @@ export default function devDeskReducer(state = initialState, actions) {
         error: actions.payload,
         isNew: false
       };
+    case NEW_USER_ERROR:
+      return {
+        ...state,
+        loading: false,
+        isAuth: false,
+        error: actions.payload,
+        isNew: false
+      }
     case NEW_USER_SUCCESS:
       return {
         ...state,
