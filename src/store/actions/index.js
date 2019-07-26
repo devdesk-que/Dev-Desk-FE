@@ -6,6 +6,7 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const GET_SUCCESS = 'GET_SUCCESS';
 export const ERROR = 'ERROR';
 export const NEW_USER_SUCCESS = 'NEW_USER_SUCCESS'
+export const NEW_USER_ERROR = 'NEW_USER_ERROR'
 
 export const login = credentials => async dispatch => {
   dispatch({ type: LOADING });
@@ -22,6 +23,23 @@ export const login = credentials => async dispatch => {
     });
 };
 
+// export function login(username, password) {
+//   return dispatch => {
+//     dispatch({ type: LOADING });
+
+//     return useAuth()
+//       .post('https://devdesk-backend.herokuapp.com/api/auth/login', {username, password })
+//       .then(res => {
+//         localStorage.setItem('token', res.data.payload)
+//         dispatch({ type: LOGIN_SUCCESS })
+//       })
+//       .catch(err => {
+//         const payload = err.response ? err.response.data : err;
+//         dispatch({ type: ERROR, payload})
+//       })
+//   }
+// }
+
 export const createUser = newUserPacket => async dispatch => {
   dispatch({ type: LOADING })
 
@@ -32,6 +50,6 @@ export const createUser = newUserPacket => async dispatch => {
     })
     .catch(err => {
       console.log('Err:', err.response)
-      dispatch({ type: ERROR, payload: err.response.data})
+      dispatch({ type: NEW_USER_ERROR, payload: err.response.message})
     })
 }

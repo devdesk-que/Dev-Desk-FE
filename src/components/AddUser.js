@@ -26,7 +26,7 @@ class AddUser extends Component {
 
   render() {
     const { username, password, authType } = this.state;
-    const { loading } = this.props;
+    const { loading, error } = this.props;
 
     if (this.props.isNew) {
       return <Redirect to='/login' />;
@@ -34,12 +34,14 @@ class AddUser extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
+      {error && <p className='error'>{error}</p>}
         <input
           type='text'
           name='username'
           placeholder='Username'
           value={username}
           onChange={this.handleChange}
+          required
         />
         <input
           type='password'
@@ -47,8 +49,10 @@ class AddUser extends Component {
           placeholder='Password'
           value={password}
           onChange={this.handleChange}
+          required
         />
-        <select onChange={this.handleChange}>
+        <select onChange={this.handleChange} required>
+          <option value=''>select user type</option>
           <option value={authType.user}>User</option>
           <option value={authType.admin}>Admin</option>
           <option value={authType.helper}>Helper</option>
@@ -66,7 +70,8 @@ class AddUser extends Component {
 
 const mapStateToProps = state => ({
   loading: state.devDeskReducer.loading,
-  isNew: state.devDeskReducer.isNew
+  isNew: state.devDeskReducer.isNew,
+  error: state.devDeskReducer.error
 });
 const mapDispatchToProps = {
   createUser
