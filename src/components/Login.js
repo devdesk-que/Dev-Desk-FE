@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../store/actions';
+import { NavLink } from 'react-router-dom';
 import Logo from '../assets/Logo';
 
 class Login extends Component {
@@ -47,8 +48,8 @@ class Login extends Component {
         </h3>
 
         <form onSubmit={this.handleSubmit} className='login-form'>
+          <h1 className='login-title'>Log In to Your Account</h1>
           {error && <p className='error'>{error}</p>}
-
           <input
             type='text'
             name='username'
@@ -70,6 +71,12 @@ class Login extends Component {
           ) : (
             <button type='submit'>Login</button>
           )}
+          <p className='signup'>
+            Need an Account?
+            <NavLink exact to='/adduser' className='signup-link'>
+              Sign Up
+            </NavLink>
+          </p>
         </form>
       </div>
     );
