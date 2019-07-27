@@ -1,11 +1,10 @@
 import React from 'react';
-import { MdDesktopMac } from 'react-icons/md';
+import ddsmall from '../assets/DD-small.png';
 
 export default function Logo() {
   return (
     <>
-      <MdDesktopMac className='logo-icon' />
-      <h1 className='logo-alt'>Dev Desk</h1>
+      <img src={ddsmall} alt='logo' className='nav-logo' />
     </>
   );
 }
