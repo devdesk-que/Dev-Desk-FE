@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+
+import { MdArrowBack } from 'react-icons/md';
 import { createUser } from '../store/actions';
+import Logo from '../assets/Logo';
 
 class AddUser extends Component {
   constructor() {
@@ -33,37 +37,54 @@ class AddUser extends Component {
     }
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        {error && <p className='error'>{error}</p>}
-        <input
-          type='text'
-          name='username'
-          placeholder='Username'
-          value={username}
-          onChange={this.handleChange}
-          required
-        />
-        <input
-          type='password'
-          name='password'
-          placeholder='Password'
-          value={password}
-          onChange={this.handleChange}
-          required
-        />
-        <select onChange={this.handleChange} required>
-          <option value=''>select user type</option>
-          <option value={authType.user}>User</option>
-          <option value={authType.admin}>Admin</option>
-          <option value={authType.helper}>Helper</option>
-        </select>
+      <div className='signup-component'>
+        <div className='signup-content'>
+          <Logo />
+          <h3 className='login-banner'>
+            Sign Up to Access our Developer Network
+          </h3>
+          <NavLink exact to='/' className='login-link'>
+            <p className='login-text'>Back to Login</p>
+            <MdArrowBack className='back-arr' />
+          </NavLink>
+        </div>
 
-        {loading ? (
-          <p>creating user...</p>
-        ) : (
-          <button type='submit'>AddUser</button>
-        )}
-      </form>
+        <form onSubmit={this.handleSubmit} className='signup-form'>
+          <h1 className='login-title'>Sign Up for an Account</h1>
+          {error && <p className='error'>{error}</p>}
+
+          <input
+            type='text'
+            name='username'
+            placeholder='Username'
+            value={username}
+            onChange={this.handleChange}
+            required
+          />
+
+          <input
+            type='password'
+            name='password'
+            placeholder='Password'
+            value={password}
+            onChange={this.handleChange}
+            required
+          />
+
+          <select onChange={this.handleChange} required>
+            <option value=''>Select User Type</option>
+            <option value={authType.user}>User</option>
+            <option value={authType.admin}>Admin</option>
+            <option value={authType.helper}>Helper</option>
+          </select>
+
+          {loading ? (
+            <p>creating user...</p>
+          ) : (
+            <button type='submit'>AddUser</button>
+          )}
+        </form>
+      </div>
     );
   }
 }
