@@ -4,8 +4,16 @@ import { connect } from 'react-redux';
 import NavBar from './dashboard/NavBar';
 import { getTickets } from '../store/actions/';
 import Tickets from './Tickets';
-
+import UserModal from './UserModal'
 class App extends Component {
+  state = {
+    show: false
+  }
+  showModal = evt => {
+    this.setState({
+      show: !this.state.show
+    })
+  }
   componentDidMount() {
     this.props.getTickets();
   }
@@ -21,6 +29,11 @@ class App extends Component {
             <Tickets tickets={this.props.tickets} />
           )}
         </div>
+
+        <button onClick={evt => {
+          this.showModal(evt)
+        }}>{''}View All User{''}</button>
+        <UserModal onClose={this.showModal} show={this.state.show} />
       </>
     );
   }
