@@ -4,7 +4,12 @@ import { connect } from 'react-redux';
 
 function PrivateRoute(props) {
   const { component: Component, isAuth, ...rest } = props;
-  if (isAuth) {
+  const token = localStorage.getItem('token');
+
+  console.log(isAuth);
+  console.log(token);
+  const isAuth2 = true;
+  if (isAuth2) {
     return <Route {...rest} render={props => <Component {...props} />} />;
   } else {
     return <Redirect to='/login' />;
@@ -13,7 +18,7 @@ function PrivateRoute(props) {
 
 const mapStateToProps = state => {
   return {
-    isAuth: state.devDeskReducer.isAuth
+    isAuth: state.isAuth
   };
 };
 

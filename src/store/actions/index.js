@@ -15,7 +15,8 @@ export const login = credentials => async dispatch => {
   axios
     .post('https://devdesk-backend.herokuapp.com/api/auth/login', credentials)
     .then(res => {
-      console.log('RES:', res);
+      console.log('RES:', res.data.token);
+      localStorage.setItem('token', res.data.token);
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     })
     .catch(err => {

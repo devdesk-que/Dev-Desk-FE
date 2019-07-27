@@ -27,8 +27,8 @@ class App extends Component {
 const mapStateToProps = state => {
   console.log('DASHBOARD STATE:', state);
   return {
-    loading: state.devDeskReducer.loading,
-    error: state.devDeskReducer.error,
+    loading: state.loading,
+    error: state.error,
     tickets: state.tickets
   };
 };

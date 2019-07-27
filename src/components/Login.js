@@ -28,7 +28,7 @@ class Login extends Component {
     // Awaits Login, goes through reducer and sets auth
     // if isAuth is true, right hand side of && runs
     // if isAuth is false, right hand will not run
-    // this.props.isAuth && this.props.history.push('/dashboard');
+    this.props.isAuth && this.props.history.push('/dashboard');
     console.log('IS AUTH AFTER AWAIT:', this.props.isAuth);
   };
   // handleSubmit = evt => {
@@ -98,9 +98,9 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => ({
-  loading: state.devDeskReducer.loading,
-  error: state.devDeskReducer.error,
-  isAuth: state.devDeskReducer.isAuth
+  loading: state.loading,
+  error: state.error,
+  isAuth: state.isAuth
 });
 
 const mapDispatchToProps = {

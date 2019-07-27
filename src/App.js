@@ -10,8 +10,8 @@ function App() {
     <div className='App'>
       <Switch>
         <Route path='/adduser' component={AddUser} />
-        <PrivateRoute path='/dashboard' component={Dashboard} />
-        <Route path='/' component={Login} />
+        <PrivateRoute path='/' component={Dashboard} />
+        <Route path='/login' component={Login} />
       </Switch>
     </div>
   );
