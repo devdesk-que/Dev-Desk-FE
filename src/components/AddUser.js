@@ -73,9 +73,11 @@ const mapStateToProps = state => ({
   isNew: state.isNew,
   error: state.error
 });
+
 const mapDispatchToProps = {
   createUser
 };
+
 export default withRouter(
   connect(
     mapStateToProps,

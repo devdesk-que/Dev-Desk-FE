@@ -10,8 +10,9 @@ import {
 
 const initialState = {
   tickets: [],
-  loading: false,
+  user: null,
   error: null,
+  loading: false,
   isAuth: false,
   isNew: false
 };
@@ -30,6 +31,7 @@ export default function devDeskReducer(state = initialState, actions) {
       return {
         ...state,
         loading: false,
+        user: actions.payload,
         error: null,
         isAuth: true,
         isNew: false

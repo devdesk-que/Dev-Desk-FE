@@ -14,7 +14,6 @@ class App extends Component {
     return (
       <>
         <NavBar />
-        <h1>Welcome back, </h1>
         <div className='dashboard'>
           {this.props.loading ? (
             <p>Loading Tickets...</p>
