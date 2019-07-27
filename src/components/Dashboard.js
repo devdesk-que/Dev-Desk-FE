@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import SideBar from './dashboard/SideBar';
+import NavBar from './dashboard/NavBar';
 import { getTickets } from '../store/actions/';
 import Tickets from './Tickets';
 
@@ -13,13 +13,15 @@ class App extends Component {
   render() {
     return (
       <>
-        <SideBar />
+        <NavBar />
         <h1>Welcome back, </h1>
-        {this.props.loading ? (
-          <p>Loading Tickets...</p>
-        ) : (
-          <Tickets tickets={this.props.tickets} />
-        )}
+        <div className='dashboard'>
+          {this.props.loading ? (
+            <p>Loading Tickets...</p>
+          ) : (
+            <Tickets tickets={this.props.tickets} />
+          )}
+        </div>
       </>
     );
   }

@@ -36,19 +36,6 @@ class Login extends Component {
     // if isAuth is false, right hand will not run
   };
 
-  // handleSubmit = evt => {
-  //     evt.preventDefault()
-  //     const { username, password } = this.state
-  //     this.props
-  //         .login(username, password)
-  //         .then(() => {
-  //             this.props.history.push('/dashboard')
-  //         })
-  //         .catch(err => {
-  //             console.log(err)
-  //         })
-  // }
-
   render() {
     const { username, password } = this.state;
     const { loading, error } = this.props;

@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import LogoAlt from '../../assets/Logo-Alt';
 
 import { MdHome, MdModeEdit, MdPerson } from 'react-icons/md';
 
 export default function SideBar() {
   return (
-    <div className='sidebar'>
+    <div className='navbar'>
+      <LogoAlt />
       <NavLink exact to='/dashboard'>
         <span role='img' aria-label='house' className='icons'>
           <MdHome />
