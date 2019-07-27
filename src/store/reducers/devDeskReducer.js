@@ -1,7 +1,15 @@
-import { LOADING, LOGIN_SUCCESS, GET_SUCCESS, ERROR, NEW_USER_SUCCESS, NEW_USER_ERROR } from '../actions';
+import {
+  LOADING,
+  LOGIN_SUCCESS,
+  GET_SUCCESS,
+  ERROR,
+  NEW_USER_SUCCESS,
+  NEW_USER_ERROR,
+  GET_TICKETS_ALL
+} from '../actions';
 
 const initialState = {
-  ticket: {},
+  tickets: [],
   loading: false,
   error: null,
   isAuth: false,
@@ -30,7 +38,7 @@ export default function devDeskReducer(state = initialState, actions) {
         loading: false,
         error: null,
         isAuth: true,
-        isNew: false,
+        isNew: false
       };
     case ERROR:
       return {
@@ -47,13 +55,20 @@ export default function devDeskReducer(state = initialState, actions) {
         isAuth: false,
         error: actions.payload,
         isNew: false
-      }
+      };
     case NEW_USER_SUCCESS:
       return {
         ...state,
         loading: false,
         isNew: true,
         error: null
+      };
+    case GET_TICKETS_ALL:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        tickets: actions.payload
       };
     default:
       return state;

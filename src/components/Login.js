@@ -31,18 +31,18 @@ class Login extends Component {
     // this.props.isAuth && this.props.history.push('/dashboard');
     console.log('IS AUTH AFTER AWAIT:', this.props.isAuth);
   };
-    // handleSubmit = evt => {
-    //     evt.preventDefault()
-    //     const { username, password } = this.state
-    //     this.props
-    //         .login(username, password)
-    //         .then(() => {
-    //             this.props.history.push('/dashboard')
-    //         })
-    //         .catch(err => {
-    //             console.log(err)
-    //         })
-    // }
+  // handleSubmit = evt => {
+  //     evt.preventDefault()
+  //     const { username, password } = this.state
+  //     this.props
+  //         .login(username, password)
+  //         .then(() => {
+  //             this.props.history.push('/dashboard')
+  //         })
+  //         .catch(err => {
+  //             console.log(err)
+  //         })
+  // }
 
   render() {
     const { username, password } = this.state;
