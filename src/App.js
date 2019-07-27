@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import AddUser from './components/AddUser';
+
 function App() {
   return (
     <div className='App'>

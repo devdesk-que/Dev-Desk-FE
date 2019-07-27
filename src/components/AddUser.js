@@ -34,7 +34,7 @@ class AddUser extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-      {error && <p className='error'>{error}</p>}
+        {error && <p className='error'>{error}</p>}
         <input
           type='text'
           name='username'
@@ -69,13 +69,15 @@ class AddUser extends Component {
 }
 
 const mapStateToProps = state => ({
-  loading: state.devDeskReducer.loading,
-  isNew: state.devDeskReducer.isNew,
-  error: state.devDeskReducer.error
+  loading: state.loading,
+  isNew: state.isNew,
+  error: state.error
 });
+
 const mapDispatchToProps = {
   createUser
 };
+
 export default withRouter(
   connect(
     mapStateToProps,
