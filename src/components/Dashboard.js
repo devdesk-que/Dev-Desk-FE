@@ -14,6 +14,7 @@ class App extends Component {
     return (
       <>
         <SideBar />
+        <h1>Welcome back, </h1>
         {this.props.loading ? (
           <p>Loading Tickets...</p>
         ) : (

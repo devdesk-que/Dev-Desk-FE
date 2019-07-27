@@ -8,11 +8,13 @@
     background-color: #666;
     border-radius: 8px;
     position: absolute;
+    display: none;
 
     .icons {
         margin: 2rem 0;
         font-size: 8rem;
         text-decoration: none;
         color: #333;
+        display: none;
     }
 }

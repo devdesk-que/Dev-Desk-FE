@@ -6,8 +6,8 @@ import { NavLink } from 'react-router-dom';
 import Logo from '../assets/Logo';
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       username: '',
       password: ''
@@ -23,14 +23,19 @@ class Login extends Component {
 
   handleSubmit = async evt => {
     evt.preventDefault();
-    console.log('IS AUTH:', this.props.isAuth);
-    await this.props.login(this.state);
+    this.props
+      .login(this.state)
+      .then(() => {
+        this.props.history.push('/dashboard');
+      })
+      .catch(err => {
+        console.log(err);
+      });
     // Awaits Login, goes through reducer and sets auth
     // if isAuth is true, right hand side of && runs
     // if isAuth is false, right hand will not run
-    this.props.isAuth && this.props.history.push('/dashboard');
-    console.log('IS AUTH AFTER AWAIT:', this.props.isAuth);
   };
+
   // handleSubmit = evt => {
   //     evt.preventDefault()
   //     const { username, password } = this.state
@@ -70,7 +75,6 @@ class Login extends Component {
             onChange={this.handleChange}
             required
           />
-
           <input
             type='password'
             name='password'
@@ -79,7 +83,6 @@ class Login extends Component {
             onChange={this.handleChange}
             required
           />
-
           {loading ? (
             <p>Logging in...</p>
           ) : (
@@ -99,8 +102,7 @@ class Login extends Component {
 
 const mapStateToProps = state => ({
   loading: state.loading,
-  error: state.error,
-  isAuth: state.isAuth
+  error: state.error
 });
 
 const mapDispatchToProps = {

@@ -9,19 +9,18 @@ export const NEW_USER_SUCCESS = 'NEW_USER_SUCCESS';
 export const NEW_USER_ERROR = 'NEW_USER_ERROR';
 export const GET_TICKETS_ALL = 'GET_TICKETS_ALL';
 
-export const login = credentials => async dispatch => {
+export const login = credentials => dispatch => {
   dispatch({ type: LOADING });
 
-  axios
+  return axios
     .post('https://devdesk-backend.herokuapp.com/api/auth/login', credentials)
     .then(res => {
       console.log('RES:', res.data.token);
-      localStorage.setItem('token', res.data.token);
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     })
     .catch(err => {
       console.log('ERR:', err.response);
-      dispatch({ type: ERROR, payload: err.response.data });
+      dispatch({ type: ERROR, payload: err.response.data.message });
     });
 };
 

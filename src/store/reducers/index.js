@@ -26,12 +26,6 @@ export default function devDeskReducer(state = initialState, actions) {
         isAuth: false,
         isNew: false
       };
-    case GET_SUCCESS:
-      return {
-        ...state,
-        loading: true,
-        error: null
-      };
     case LOGIN_SUCCESS:
       return {
         ...state,
@@ -39,6 +33,12 @@ export default function devDeskReducer(state = initialState, actions) {
         error: null,
         isAuth: true,
         isNew: false
+      };
+    case GET_SUCCESS:
+      return {
+        ...state,
+        loading: true,
+        error: null
       };
     case ERROR:
       return {
