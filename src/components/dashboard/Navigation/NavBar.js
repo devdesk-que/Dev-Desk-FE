@@ -1,13 +1,21 @@
 // React Components
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { MdModeEdit, MdPerson } from 'react-icons/md';
+import { FiLogOut } from 'react-icons/fi';
 
 // Components
 import LogoAlt from '../../../assets/Logo-Alt';
 
-function NavBar() {
+function NavBar(props) {
+  const logout = e => {
+    e.preventDefault();
+
+    localStorage.removeItem('token');
+    props.history.push('/');
+  };
+
   return (
     <div className='navbar'>
       {/* Renders alternative logo and wraps a link back to dashboard on it */}
@@ -28,6 +36,12 @@ function NavBar() {
             <MdPerson />
           </span>
         </NavLink>
+
+        <NavLink exact to='/' onClick={logout}>
+          <span role='img' aria-label='users' className='logout-icons icons'>
+            <FiLogOut />
+          </span>
+        </NavLink>
       </div>
 
       {/* {this.state.user.map(wb => {
@@ -45,4 +59,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(NavBar);
+export default withRouter(connect(mapStateToProps)(NavBar));
