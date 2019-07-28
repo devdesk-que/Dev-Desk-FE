@@ -85,10 +85,10 @@ class AddUser extends Component {
           />
 
           <select onChange={this.handleChange} required>
-            <option value={null}>Select User Type</option>
-            <option value={authType.user}>User</option>
-            <option value={authType.admin}>Admin</option>
-            <option value={authType.helper}>Helper</option>
+            <option value=''>Select User Type</option>
+            <option value='user'>User</option>
+            <option value='admin'>Admin</option>
+            <option value='helper'>Helper</option>
           </select>
 
           {loading ? (
