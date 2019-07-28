@@ -16,8 +16,8 @@ class UserModal extends Component {
         }
         return (
             
-            <div>
-                <h2>User List!</h2>
+            <div className='users-list'>
+                <h2 className='users-title'>Manage Users</h2>
                 
                 <div>{this.props.children}</div>
                 <Users users={this.props.users} />

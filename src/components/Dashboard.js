@@ -30,9 +30,9 @@ class App extends Component {
           )}
         </div>
 
-        <button onClick={evt => {
+        <button className='dash-button' onClick={evt => {
           this.showModal(evt)
-        }}>{''}View All User{''}</button>
+        }}>{''}View All Users{''}</button>
         <UserModal onClose={this.showModal} show={this.state.show} />
       </>
     );

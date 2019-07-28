@@ -1,0 +1,31 @@
+.dash-button {
+    margin: 1rem;
+}
+.users-list {
+    padding: 1rem;
+    // color: whitesmoke
+}
+.users {
+    display: flex;
+    // justify-content: space-evenly;
+    border: 1px solid black;
+    width: 1000px;
+    padding: 1rem;
+    overflow: scroll;
+}
+.users-title {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+}
+.user {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    // border: 1px solid black;
+    color: white;
+    // overflow: auto;
+    padding: 1rem;
+}

@@ -4,7 +4,7 @@ import User from './User'
 class Users extends Component {
     render() {
         return (
-            <div>
+            <div className='users'>
                 {this.props.users.map(
                     user => {
                         return (
