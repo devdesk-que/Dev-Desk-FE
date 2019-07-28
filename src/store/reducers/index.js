@@ -6,7 +6,7 @@ import {
   NEW_USER_SUCCESS,
   NEW_USER_ERROR,
   GET_TICKETS_ALL,
-  GET_USERS_SUCCESS,
+  GET_USERS_SUCCESS
 } from '../actions';
 
 const initialState = {
@@ -51,6 +51,13 @@ export default function devDeskReducer(state = initialState, actions) {
         error: actions.payload,
         isNew: false
       };
+    case NEW_USER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isNew: true,
+        error: null
+      };
     case NEW_USER_ERROR:
       return {
         ...state,
@@ -58,13 +65,6 @@ export default function devDeskReducer(state = initialState, actions) {
         isAuth: false,
         error: actions.payload,
         isNew: false
-      };
-    case NEW_USER_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        isNew: true,
-        error: null
       };
     case GET_TICKETS_ALL:
       return {
@@ -81,7 +81,7 @@ export default function devDeskReducer(state = initialState, actions) {
         error: null,
         users: actions.payload,
         isAuth: true
-      }
+      };
     default:
       return state;
   }

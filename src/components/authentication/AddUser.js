@@ -1,11 +1,15 @@
+// React Components
 import React, { Component } from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-
 import { MdArrowBack } from 'react-icons/md';
-import { createUser } from '../store/actions';
-import Logo from '../assets/Logo';
+
+// Store
+import { createUser } from '../../store/actions';
+
+// Components
+import Logo from '../../assets/Logo';
 
 class AddUser extends Component {
   constructor() {
@@ -23,9 +27,18 @@ class AddUser extends Component {
       [evt.target.name]: evt.target.value
     });
   };
+
   handleSubmit = async evt => {
     evt.preventDefault();
-    await this.props.createUser(this.state);
+
+    this.props
+      .createUser(this.state)
+      .then(() => {
+        this.props.history.push('./');
+      })
+      .catch(err => {
+        console.error(err);
+      });
   };
 
   render() {
@@ -71,17 +84,17 @@ class AddUser extends Component {
             required
           />
 
-          <select onChange={this.handleChange} required>
+          <select value={authType} onChange={this.handleChange}>
             <option value=''>Select User Type</option>
-            <option value={authType.user}>User</option>
-            <option value={authType.admin}>Admin</option>
-            <option value={authType.helper}>Helper</option>
+            <option value='user'>User</option>
+            <option value='admin'>Admin</option>
+            <option value='helper'>Helper</option>
           </select>
 
           {loading ? (
             <p>creating user...</p>
           ) : (
-            <button type='submit'>AddUser</button>
+            <button type='submit'>Add User</button>
           )}
         </form>
       </div>

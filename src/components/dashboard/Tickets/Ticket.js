@@ -1,8 +1,11 @@
+// React Components
 import React from 'react';
 
 const Ticket = props => {
+  // Destructuring type, description, owner, assigned, and id from props.ticket
   const { type, description, owner, assigned, id } = props.ticket;
   return (
+    // Rendering ticket items
     <div className='ticket' key={id}>
       <div className='ticket-item'>
         <h1>{type}</h1>
