@@ -1,9 +1,14 @@
+// React Components
 import React, { Component } from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { login } from '../store/actions';
 import { NavLink } from 'react-router-dom';
-import Logo from '../assets/Logo';
+
+// Store
+import { login } from '../../store/actions';
+
+// Components
+import Logo from '../../assets/Logo';
 
 class Login extends Component {
   constructor(props) {

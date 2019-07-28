@@ -1,11 +1,15 @@
+// React Components
 import React, { Component } from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-
 import { MdArrowBack } from 'react-icons/md';
-import { createUser } from '../store/actions';
-import Logo from '../assets/Logo';
+
+// Store
+import { createUser } from '../../store/actions';
+
+// Components
+import Logo from '../../assets/Logo';
 
 class AddUser extends Component {
   constructor() {
