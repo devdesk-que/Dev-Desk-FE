@@ -27,9 +27,18 @@ class AddUser extends Component {
       [evt.target.name]: evt.target.value
     });
   };
+
   handleSubmit = async evt => {
     evt.preventDefault();
-    await this.props.createUser(this.state);
+
+    this.props
+      .createUser(this.state)
+      .then(() => {
+        this.props.history.push('./');
+      })
+      .catch(err => {
+        console.error(err);
+      });
   };
 
   render() {
@@ -76,7 +85,7 @@ class AddUser extends Component {
           />
 
           <select onChange={this.handleChange} required>
-            <option value=''>Select User Type</option>
+            <option value={null}>Select User Type</option>
             <option value={authType.user}>User</option>
             <option value={authType.admin}>Admin</option>
             <option value={authType.helper}>Helper</option>
