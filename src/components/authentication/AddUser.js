@@ -84,7 +84,7 @@ class AddUser extends Component {
             required
           />
 
-          <select onChange={this.handleChange} required>
+          <select value={authType} onChange={this.handleChange}>
             <option value=''>Select User Type</option>
             <option value='user'>User</option>
             <option value='admin'>Admin</option>
@@ -94,7 +94,7 @@ class AddUser extends Component {
           {loading ? (
             <p>creating user...</p>
           ) : (
-            <button type='submit'>AddUser</button>
+            <button type='submit'>Add User</button>
           )}
         </form>
       </div>
