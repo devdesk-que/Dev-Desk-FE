@@ -20,7 +20,7 @@ const Ticket = props => {
       </div>
 
       <div className='ticket-item'>
-        <h1>Helper: {{ assigned } && 'Hello from Null'}</h1>
+        <h1>Helper: {{ assigned } && 'Open'}</h1>
       </div>
     </div>
   );
