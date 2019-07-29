@@ -47,13 +47,13 @@ class App extends Component {
           this.showModal(evt)
         }}>{''}View All Users{''}</button>
         {/* modal button to show all users */}
-        <button
+        {/* <button
           onClick={evt => {
             this.showModal(evt);
           }}
         >
           {''}View All User{''}
-        </button>
+        </button> */}
         <UserModal onClose={this.showModal} show={this.state.show} />
       </>
     );
