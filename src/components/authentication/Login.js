@@ -50,43 +50,45 @@ class Login extends Component {
     }
 
     return (
-      <div className='login-component'>
-        <Logo />
-        <h3 className='login-banner'>
-          You have problems. <br /> We have solutions. <br /> ...Sometimes
-        </h3>
+      <div className='login-component-bg'>
+        <div className='login-component'>
+          <Logo />
+          <h3 className='login-banner'>
+            You have problems. <br /> We have solutions. <br /> ...Sometimes
+          </h3>
 
-        <form onSubmit={this.handleSubmit} className='login-form'>
-          <h1 className='login-title'>Log In to Your Account</h1>
-          {error && <p className='error'>{error}</p>}
-          <input
-            type='text'
-            name='username'
-            placeholder='Username'
-            value={username}
-            onChange={this.handleChange}
-            required
-          />
-          <input
-            type='password'
-            name='password'
-            placeholder='Password'
-            value={password}
-            onChange={this.handleChange}
-            required
-          />
-          {loading ? (
-            <p>Logging in...</p>
-          ) : (
-            <button type='submit'>Login</button>
-          )}
-          <p className='signup'>
-            Need an Account?
-            <NavLink exact to='/adduser' className='signup-link'>
-              Sign Up
-            </NavLink>
-          </p>
-        </form>
+          <form onSubmit={this.handleSubmit} className='login-form'>
+            <h1 className='login-title'>Log In to Your Account</h1>
+            {error && <p className='error'>{error}</p>}
+            <input
+              type='text'
+              name='username'
+              placeholder='Username'
+              value={username}
+              onChange={this.handleChange}
+              required
+            />
+            <input
+              type='password'
+              name='password'
+              placeholder='Password'
+              value={password}
+              onChange={this.handleChange}
+              required
+            />
+            {loading ? (
+              <p>Logging in...</p>
+            ) : (
+              <button type='submit'>Login</button>
+            )}
+            <p className='signup'>
+              Need an Account?
+              <NavLink exact to='/adduser' className='signup-link'>
+                Sign Up
+              </NavLink>
+            </p>
+          </form>
+        </div>
       </div>
     );
   }

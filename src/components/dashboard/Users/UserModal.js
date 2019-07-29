@@ -26,7 +26,9 @@ class UserModal extends Component {
         <div>{this.props.children}</div>
         <Users users={this.props.users} />
         <div>
-          <button onClick={this.onClose}>close</button>
+          <button onClick={this.onClose} className='close-btn'>
+            close
+          </button>
         </div>
       </div>
     );

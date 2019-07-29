@@ -8,9 +8,9 @@ export const ERROR = 'ERROR';
 export const NEW_USER_SUCCESS = 'NEW_USER_SUCCESS';
 export const NEW_USER_ERROR = 'NEW_USER_ERROR';
 export const GET_TICKETS_ALL = 'GET_TICKETS_ALL';
-export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS'
-export const GET_USERS_ERROR = 'GET_USERS_ERROR'
-export const GET_SINGLE_USER = 'GET_SINGLE_USER'
+export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS';
+export const GET_USERS_ERROR = 'GET_USERS_ERROR';
+export const GET_SINGLE_USER = 'GET_SINGLE_USER';
 
 export const login = credentials => dispatch => {
   dispatch({ type: LOADING });
@@ -40,23 +40,6 @@ export const getTickets = () => async dispatch => {
     });
 };
 
-// export function login(username, password) {
-//   return dispatch => {
-//     dispatch({ type: LOADING });
-
-//     return useAuth()
-//       .post('https://devdesk-backend.herokuapp.com/api/auth/login', {username, password })
-//       .then(res => {
-//         localStorage.setItem('token', res.data.payload)
-//         dispatch({ type: LOGIN_SUCCESS })
-//       })
-//       .catch(err => {
-//         const payload = err.response ? err.response.data : err;
-//         dispatch({ type: ERROR, payload})
-//       })
-//   }
-// }
-
 export const createUser = newUserPacket => async dispatch => {
   dispatch({ type: LOADING });
 
@@ -67,7 +50,7 @@ export const createUser = newUserPacket => async dispatch => {
     )
     // console.log(newUserPacket)
     .then(res => {
-      console.log('!!!!!!:', newUserPacket)
+      console.log('!!!!!!:', newUserPacket);
       dispatch({ type: NEW_USER_SUCCESS, payload: res.data });
     })
     .catch(err => {
@@ -77,31 +60,31 @@ export const createUser = newUserPacket => async dispatch => {
 };
 
 export const getAllUsers = () => async dispatch => {
-  dispatch({ type: LOADING })
+  dispatch({ type: LOADING });
 
   useAuth()
     .get('https://devdesk-backend.herokuapp.com/api/users')
     .then(res => {
-      console.log(res)
-      dispatch({ type: GET_USERS_SUCCESS, payload: res.data})
+      console.log(res);
+      dispatch({ type: GET_USERS_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: GET_USERS_ERROR })
-      console.log('Get User Err:', err)
-    })
-}
+      dispatch({ type: GET_USERS_ERROR });
+      console.log('Get User Err:', err);
+    });
+};
 
-export const getSingleUser = (id) => dispatch => {
-  dispatch({ type: LOADING})
+export const getSingleUser = id => dispatch => {
+  dispatch({ type: LOADING });
 
   useAuth()
     .get('https://devdesk-backend.herokuapp.com/api/users/:id', id)
     .then(res => {
-      console.log('!!!THIS IS WORKING?')
-      dispatch({ type: GET_SINGLE_USER, payload: res.data})
+      console.log('!!!THIS IS WORKING?');
+      dispatch({ type: GET_SINGLE_USER, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: ERROR })
-      console.log('Get User Error:', err)
-    })
-}
+      dispatch({ type: ERROR });
+      console.log('Get User Error:', err);
+    });
+};

@@ -7,7 +7,7 @@ import { Route, Switch } from 'react-router-dom';
 import Login from './components/authentication/Login';
 import Dashboard from './components/dashboard/Dashboard';
 import AddUser from './components/authentication/AddUser';
-import UserInformation from './components/dashboard/Users/UserInformation'
+import UserInformation from './components/dashboard/Users/UserInformation';
 
 function App() {
   return (

@@ -1,35 +1,59 @@
 .dash-button {
     margin: 1rem;
 }
+
 .users-list {
-    // margin-top: 3rem;
-    padding-top: 400px;
-    // color: whitesmoke
-    padding-left: 500px;
+    position: absolute;
+    top: 70px;
+    left: 53%;
+    text-shadow: 2px 2px 4px #09091a;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.65);
 }
 
 .users {
     display: flex;
-    // justify-content: space-evenly;
+    flex-wrap: wrap;
     border: 1px solid black;
-    width: 1000px;
+    width: 90%;
     padding: 1rem;
-    overflow: scroll;
-    // color: white;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.65);
 }
+
 .users-title {
-    display: flex;
-    justify-content: center;
-    font-size: 3rem;
-    color: white;
+    font-family: 'Atomic Age', cursive;
+    font-size: 8rem;
+    color: #007fb9;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #111;
+    text-shadow: 3px 5px rgba(255, 255, 255, 0.65);
+    margin-bottom: 1rem;
 }
+
 .user {
     width: 100%;
     display: flex;
     flex-direction: column;
     font-size: 2rem;
-    // border: 1px solid black;
-    // color: white;
-    // overflow: auto;
     padding: 1rem;
+    color: #007fb9;
+    text-decoration: none;
+}
+
+.user-link {
+    text-decoration: none;
+    color: #007fb9;
+    display: flex;
+
+    p {
+        width: 33%;
+        font-size: 3rem;
+    }
 }
