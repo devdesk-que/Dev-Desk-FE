@@ -65,7 +65,9 @@ export const createUser = newUserPacket => async dispatch => {
       'https://devdesk-backend.herokuapp.com/api/auth/register',
       newUserPacket
     )
+    // console.log(newUserPacket)
     .then(res => {
+      console.log('!!!!!!:', newUserPacket)
       dispatch({ type: NEW_USER_SUCCESS, payload: res.data });
     })
     .catch(err => {

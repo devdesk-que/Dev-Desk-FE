@@ -27,6 +27,13 @@ class AddUser extends Component {
       [evt.target.name]: evt.target.value
     });
   };
+  selectChange = evt => {
+    evt.preventDefault();
+    // let value = evt.target.value
+    this.setState({
+      authType: evt.target.value
+    })
+  }
 
   handleSubmit = async evt => {
     evt.preventDefault();
@@ -83,8 +90,7 @@ class AddUser extends Component {
             onChange={this.handleChange}
             required
           />
-
-          <select value={authType} onChange={this.handleChange}>
+          <select value={authType} onChange={this.selectChange}>
             <option value=''>Select User Type</option>
             <option value='user'>User</option>
             <option value='admin'>Admin</option>
