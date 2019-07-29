@@ -1,21 +1,41 @@
 // React Components
-import React from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import React, { Component } from 'react';
+import { NavLink, withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { MdModeEdit, MdPerson } from 'react-icons/md';
 import { FiLogOut } from 'react-icons/fi';
 
 // Components
 import LogoAlt from '../../../assets/Logo-Alt';
+import UserModal from '../Users/UserModal'
+import { throwStatement } from '@babel/types';
 
-function NavBar(props) {
-  const logout = e => {
-    e.preventDefault();
+// function NavBar(props) {
+//   const logout = e => {
+//     e.preventDefault();
 
-    localStorage.removeItem('token');
-    props.history.push('/');
-  };
+//     localStorage.removeItem('token');
+//     props.history.push('/');
+//   };
+  class NavBar extends Component {
+    constructor(props) {
+      super(props)
+      this.state = {
+        show: false
+      }
+    }
+    logout = e => {
+      e.preventDefault()
 
+      localStorage.removeItem('token')
+      this.props.history.push('/')
+    }
+    showModal = evt => {
+      this.setState({
+        show: !this.state.show
+      })
+    }
+  render() {
   return (
     <div className='navbar'>
       {/* Renders alternative logo and wraps a link back to dashboard on it */}
@@ -31,17 +51,22 @@ function NavBar(props) {
           </span>
         </NavLink>
 
-        <NavLink exact to='/users'>
+        <NavLink exact to='/users' onClick={evt => {
+          evt.preventDefault()
+          this.showModal(evt)
+        }}>
           <span role='img' aria-label='users' className='icons'>
             <MdPerson />
           </span>
         </NavLink>
 
-        <NavLink exact to='/' onClick={logout}>
+        <NavLink exact to='/' onClick={this.logout}>
           <span role='img' aria-label='users' className='logout-icons icons'>
             <FiLogOut />
           </span>
         </NavLink>
+
+        <UserModal onClose={this.showModal} show={this.state.show} />
       </div>
 
       {/* {this.state.user.map(wb => {
@@ -50,12 +75,13 @@ function NavBar(props) {
     </div>
   );
 }
+}
 
 // From the Redux, we're using the state user.
 const mapStateToProps = state => {
   console.log('NAVBAR STATE:', state);
   return {
-    user: state.user
+    user: state.user,
   };
 };
 
