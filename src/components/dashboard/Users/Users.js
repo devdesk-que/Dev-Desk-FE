@@ -1,5 +1,6 @@
 // React Components
 import React, { Component } from 'react';
+// import { Link } from 'react-router-dom'
 
 // Component
 import User from './User';
@@ -7,9 +8,12 @@ import User from './User';
 class Users extends Component {
   render() {
     return (
-      <div>
+      <div className='users'>
         {this.props.users.map(user => {
-          return <User key={user.id} user={user} />;
+            // <Link to={`/userinformation/${user.id}`}>
+            //   <User key={user.id} user={user} />
+            // </Link>
+          return <User key={user.id} user={user} />; 
         })}
       </div>
     );

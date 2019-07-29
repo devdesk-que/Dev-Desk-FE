@@ -43,9 +43,9 @@ class App extends Component {
           )}
         </div>
 
-        <button className='dash-button' onClick={evt => {
+        {/* <button className='dash-button' onClick={evt => {
           this.showModal(evt)
-        }}>{''}View All Users{''}</button>
+        }}>{''}View All Users{''}</button> */}
         {/* modal button to show all users */}
         {/* <button
           onClick={evt => {

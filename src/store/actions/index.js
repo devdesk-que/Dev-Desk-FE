@@ -94,13 +94,14 @@ export const getAllUsers = () => async dispatch => {
 export const getSingleUser = (id) => dispatch => {
   dispatch({ type: LOADING})
 
-  axios
+  useAuth()
     .get('https://devdesk-backend.herokuapp.com/api/users/:id', id)
     .then(res => {
+      console.log('!!!THIS IS WORKING?')
       dispatch({ type: GET_SINGLE_USER, payload: res.data})
     })
     .catch(err => {
-      dispatch({ type: GET_USERS_ERROR })
+      dispatch({ type: ERROR })
       console.log('Get User Error:', err)
     })
 }
