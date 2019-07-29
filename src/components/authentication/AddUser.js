@@ -27,15 +27,15 @@ class AddUser extends Component {
       [evt.target.name]: evt.target.value
     });
   };
-  
+
   // Separate onChange function for select menu only
   selectChange = evt => {
     evt.preventDefault();
 
     this.setState({
       authType: evt.target.value
-    })
-  }
+    });
+  };
 
   handleSubmit = async evt => {
     evt.preventDefault();
@@ -59,56 +59,54 @@ class AddUser extends Component {
     }
 
     return (
-      <div className='signup-component'>
-        <div className='signup-content'>
-          <Logo />
-          <h3 className='login-banner'>
-            Sign Up to Access our Developer Network
-          </h3>
-          <NavLink exact to='/' className='login-link'>
-            <p className='login-text'>Back to Login</p>
-            <MdArrowBack className='back-arr' />
-          </NavLink>
+      <div className='signup-bg'>
+        <div className='signup-component'>
+          <div className='signup-content'>
+            <Logo />
+            <h3 className='add-user-banner'>
+              Sign Up to Access our Developer Network
+            </h3>
+            <NavLink exact to='/' className='login-link'>
+              <p className='login-text'>Back to Login</p>
+              <MdArrowBack className='back-arr' />
+            </NavLink>
+          </div>
+
+          <form onSubmit={this.handleSubmit} className='signup-form'>
+            <h1 className='add-user-title'>Sign Up for an Account</h1>
+            {error && <p className='error'>{error}</p>}
+
+            <input
+              type='text'
+              name='username'
+              placeholder='Username'
+              value={username}
+              onChange={this.handleChange}
+              required
+            />
+
+            <input
+              type='password'
+              name='password'
+              placeholder='Password'
+              value={password}
+              onChange={this.handleChange}
+              required
+            />
+            <select value={authType} onChange={this.selectChange} required>
+              <option value=''>Select User Type</option>
+              <option value='user'>User</option>
+              <option value='admin'>Admin</option>
+              <option value='helper'>Helper</option>
+            </select>
+
+            {loading ? (
+              <p>creating user...</p>
+            ) : (
+              <button type='submit'>Add User</button>
+            )}
+          </form>
         </div>
-
-        <form onSubmit={this.handleSubmit} className='signup-form'>
-          <h1 className='login-title'>Sign Up for an Account</h1>
-          {error && <p className='error'>{error}</p>}
-
-          <input
-            type='text'
-            name='username'
-            placeholder='Username'
-            value={username}
-            onChange={this.handleChange}
-            required
-          />
-
-          <input
-            type='password'
-            name='password'
-            placeholder='Password'
-            value={password}
-            onChange={this.handleChange}
-            required
-          />
-          <select 
-            value={authType} 
-            onChange={this.selectChange}
-            required
-          >
-            <option value=''>Select User Type</option>
-            <option value='user'>User</option>
-            <option value='admin'>Admin</option>
-            <option value='helper'>Helper</option>
-          </select>
-
-          {loading ? (
-            <p>creating user...</p>
-          ) : (
-            <button type='submit'>Add User</button>
-          )}
-        </form>
       </div>
     );
   }
