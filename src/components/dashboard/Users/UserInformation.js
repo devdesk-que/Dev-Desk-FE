@@ -1,15 +1,14 @@
+// React Components
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
+// Store
 import { getSingleUser } from '../../../store/actions'
 
-
+// Components
 class UserInformation extends Component {
-    constructor(props) {
-        super(props);
-        // this.state = {
-        //     id: this.props.id
-        // }
-    }
+    
+    // Calls getSingleUser from Redux
     componentDidMount() {
         this.props.getSingleUser(this.props.id)
     }
