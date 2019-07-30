@@ -17,14 +17,14 @@ class App extends Component {
     show: false
   };
 
-  // On click, either open or closes modal depedning on modal current state
+  // ShowModal function
   showModal = evt => {
     this.setState({
       show: !this.state.show
     });
   };
 
-  // CDM, calls getTickets function from Redux
+  //CDM, calls getTickets function from Redux
   componentDidMount() {
     this.props.getTickets();
   }
@@ -44,7 +44,6 @@ class App extends Component {
             <Tickets tickets={this.props.tickets} />
           )}
         </div>
-        {/* Renders modal to screen, passes method to allow modal to open and close */}
         <UserModal onClose={this.showModal} show={this.state.show} />
       </>
     );

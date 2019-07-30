@@ -12,7 +12,6 @@ class Users extends Component {
     usersPerPage: 10
   };
 
-
   // Handles switch to different pages on click
   handleClick = evt => {
     this.setState({
@@ -27,7 +26,6 @@ class Users extends Component {
     const indexOfLastUser = currentPage * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
-
     const showUsers = currentUsers.map(user => {
       return <User key={user.id} user={user} />;
     });
@@ -39,7 +37,6 @@ class Users extends Component {
     }
     const showPageNumbers = pageNumbers.map(number => {
       return (
-
         <div className='user-pagi-container'>
           <ol
             key={number}
@@ -52,7 +49,6 @@ class Users extends Component {
         </div>
       );
     });
-
 
     return (
       <div className='users'>

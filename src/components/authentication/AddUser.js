@@ -37,14 +37,12 @@ class AddUser extends Component {
     });
   };
 
-  // Method calls create user function on submission of the form
   handleSubmit = async evt => {
     evt.preventDefault();
 
     this.props
       .createUser(this.state)
       .then(() => {
-        // Redirects user back to login page after new user is created 
         this.props.history.push('./');
       })
       .catch(err => {
