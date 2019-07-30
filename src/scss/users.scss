@@ -27,6 +27,7 @@
     padding: 1rem;
     border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.65);
+    height: 100%;
 }
 
 .users-title {
@@ -59,14 +60,32 @@
         font-size: 3rem;
     }
 }
-.page-number {
-    display: flex;
-    // justify-content: space-evenly;
-    font-size: 3rem;
-    padding: 0rem 2.5rem;
-    color: white;
 
-    :hover {
-        cursor: pointer
-    }
+
+.page-link {
+    font-size: 2.5rem;
+    margin: 2rem 2rem 0 1rem;
+    border: 4px unset white;
+    padding: 1rem;
+    cursor: pointer;
+    color: #007fb9;
+    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.close-btn {
+    padding: 2rem;
+    text-decoration: none;
+    background: #007fb9;
+    border-radius: 8px;
+    border: 2px solid white;
+    color: #ffffff;
+    min-width: 400px;
+    width: 100%;
+    font-family: 'Shrikhand', cursive;
+    font-size: 2.5rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    margin-top: 1rem;
 }

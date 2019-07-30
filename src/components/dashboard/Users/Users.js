@@ -1,6 +1,6 @@
 // React Components
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom'
 
 // Component
@@ -9,40 +9,50 @@ import User from './User';
 class Users extends Component {
   state = {
     currentPage: 1,
-    usersPerPage: 7,
-  
-  }
+    usersPerPage: 10
+  };
+
 
   // Handles switch to different pages on click
   handleClick = evt => {
     this.setState({
       currentPage: Number(evt.target.id)
-    })
-  }
+    });
+  };
   render() {
-    const { currentPage, usersPerPage } = this.state
-    const users = this.props.users
+    const { currentPage, usersPerPage } = this.state;
+    const users = this.props.users;
 
-    // Used to display users in pagination
-    const indexOfLastUser = currentPage * usersPerPage
-    const indexOfFirstUser = indexOfLastUser - usersPerPage
-    const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser)
+    // mapping users to the screen
+    const indexOfLastUser = currentPage * usersPerPage;
+    const indexOfFirstUser = indexOfLastUser - usersPerPage;
+    const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
 
-    // function that maps users to the screen
     const showUsers = currentUsers.map(user => {
-      return <User key={user.id} user={user} />
-    })
+      return <User key={user.id} user={user} />;
+    });
 
     // displaying page numbers for pagination
-    const pageNumbers = []
-    for (let i = 1; i <= Math.ceil(users.length / usersPerPage ); i++ ) {
-      pageNumbers.push(i)
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(users.length / usersPerPage); i++) {
+      pageNumbers.push(i);
     }
     const showPageNumbers = pageNumbers.map(number => {
       return (
-        <ol key={number} id={number} onClick={this.handleClick} className='page-number'>{number}</ol>
-      )
-    })
+
+        <div className='user-pagi-container'>
+          <ol
+            key={number}
+            id={number}
+            onClick={this.handleClick}
+            className='page-link'
+          >
+            {number}
+          </ol>
+        </div>
+      );
+    });
+
 
     return (
       <div className='users'>
@@ -60,8 +70,7 @@ class Users extends Component {
 const mapStateToProps = state => {
   return {
     users: state.users
-  }
-}
+  };
+};
 
-export default connect(
-  mapStateToProps)(Users);
+export default connect(mapStateToProps)(Users);
