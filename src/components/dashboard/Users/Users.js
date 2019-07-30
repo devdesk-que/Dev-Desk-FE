@@ -11,7 +11,7 @@ class Users extends Component {
     // users: this.state.users,
     currentPage: 1,
     usersPerPage: 10,
-    
+  
   }
 
   handleClick = evt => {
@@ -38,7 +38,7 @@ class Users extends Component {
     }
     const showPageNumbers = pageNumbers.map(number => {
       return (
-        <li key={number} id={number} onClick={this.handleClick}>{number}</li>
+        <ol key={number} id={number} onClick={this.handleClick}>{number}</ol>
       )
     })
 

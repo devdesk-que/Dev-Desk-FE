@@ -9,44 +9,14 @@ import { getAllUsers } from '../../../store/actions/index';
 import Users from './Users';
 
 class UserModal extends Component {
-  // state = {
-  //   currentPage: 1,
-  //   usersPerPage: 10,
-  //   // users: this.state.users
-  //   // users: this.props.users
-  // }
   componentDidMount() {
     this.props.getAllUsers();
   }
   onClose = evt => {
     this.props.onClose && this.props.onClose(evt);
   };
-  nextPage = evt => {
-    evt.preventDefault()
-
-    this.setState({
-      currentPage: this.state.currentPage+1
-    })
-    console.log('prev page: i am working')
-  }
-  prevPage = evt => {
-    evt.preventDefault()
-
-    this.setState({
-      currentPage: this.state.currentPage-1
-    })
-    console.log('next page: i am working')
-  }
+  
   render() {
-    // destructure state elements
-    // const { currentPage, usersPerPage } = this.state
-    // const users = this.props.users
-    // console.log('00Users: ', users)
-    
-    // display current users on screen
-    // const indexOfLastUser = currentPage * usersPerPage
-    // const indexOfFirstUser = indexOfLastUser - usersPerPage
-    // const currentUsers = this.props.users.slice(indexOfFirstUser, indexOfLastUser)
 
     if (!this.props.show) {
       return null;
@@ -60,12 +30,6 @@ class UserModal extends Component {
         <div>
           <button onClick={this.onClose} className='close-btn'>
             close
-          </button>
-          <button onClick={this.prevPage}>
-            Prev. Page
-          </button>
-          <button onClick={this.nextPage}>
-            Next Page
           </button>
         </div>
       </div>
