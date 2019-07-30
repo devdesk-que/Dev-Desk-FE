@@ -9,6 +9,7 @@ import { getTickets } from '../../store/actions';
 import NavBar from './Navigation/NavBar';
 import Tickets from './Tickets/Tickets';
 import UserModal from './Users/UserModal';
+import TicketForm from './TicketForm/TicketForm';
 
 class App extends Component {
   // Sets state for Dashboard component
@@ -36,24 +37,13 @@ class App extends Component {
 
         {/* Renders Dashboard then loads tickets using stored state loading */}
         <div className='dashboard'>
+          <TicketForm />
           {this.props.loading ? (
             <p>Loading Tickets...</p>
           ) : (
             <Tickets tickets={this.props.tickets} />
           )}
         </div>
-
-        {/* <button className='dash-button' onClick={evt => {
-          this.showModal(evt)
-        }}>{''}View All Users{''}</button> */}
-        {/* modal button to show all users */}
-        {/* <button
-          onClick={evt => {
-            this.showModal(evt);
-          }}
-        >
-          {''}View All User{''}
-        </button> */}
         <UserModal onClose={this.showModal} show={this.state.show} />
       </>
     );
