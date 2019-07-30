@@ -31,6 +31,7 @@ class Login extends Component {
     this.props
       .login(this.state)
       .then(() => {
+        // Pushes user to dashboard page upon successful login attempt
         this.props.history.push('/dashboard');
       })
       .catch(err => {
@@ -94,11 +95,13 @@ class Login extends Component {
   }
 }
 
+// Pulls loading and error states from Redux
 const mapStateToProps = state => ({
   loading: state.loading,
   error: state.error
 });
 
+// Pulls login function from Redux
 const mapDispatchToProps = {
   login
 };
