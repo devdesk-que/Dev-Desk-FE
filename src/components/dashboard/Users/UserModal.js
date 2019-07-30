@@ -15,7 +15,9 @@ class UserModal extends Component {
   onClose = evt => {
     this.props.onClose && this.props.onClose(evt);
   };
+  
   render() {
+
     if (!this.props.show) {
       return null;
     }
