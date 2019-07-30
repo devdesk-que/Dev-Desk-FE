@@ -15,9 +15,8 @@ class UserModal extends Component {
   onClose = evt => {
     this.props.onClose && this.props.onClose(evt);
   };
-  
-  render() {
 
+  render() {
     if (!this.props.show) {
       return null;
     }
@@ -29,7 +28,7 @@ class UserModal extends Component {
         <Users users={this.props.users} />
         <div>
           <button onClick={this.onClose} className='close-btn'>
-            close
+            Close
           </button>
         </div>
       </div>
