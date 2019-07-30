@@ -8,11 +8,11 @@ import User from './User';
 
 class Users extends Component {
   state = {
-    // users: this.state.users,
     currentPage: 1,
     usersPerPage: 10
   };
 
+  // Handles switch to different pages on click
   handleClick = evt => {
     this.setState({
       currentPage: Number(evt.target.id)
@@ -52,12 +52,17 @@ class Users extends Component {
 
     return (
       <div className='users'>
+        {/* Calls showUsers to display current users to the screen inside modal */}
         {showUsers}
+
+        {/* Displays page numbers, for pagination, at bottom of the modal */}
         {showPageNumbers}
       </div>
     );
   }
 }
+
+// Pulling users states from Redux
 const mapStateToProps = state => {
   return {
     users: state.users
