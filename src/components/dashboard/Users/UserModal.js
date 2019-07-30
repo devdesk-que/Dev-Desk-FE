@@ -9,9 +9,13 @@ import { getAllUsers } from '../../../store/actions/index';
 import Users from './Users';
 
 class UserModal extends Component {
+
+  // Calls getAllUsers from redux
   componentDidMount() {
     this.props.getAllUsers();
   }
+  
+  // Method, allows close button to close modal
   onClose = evt => {
     this.props.onClose && this.props.onClose(evt);
   };
@@ -37,6 +41,7 @@ class UserModal extends Component {
   }
 }
 
+// Pulling loading, error, and users states from Redux
 const mapStateToProps = state => {
   return {
     loading: state.loading,
@@ -44,9 +49,12 @@ const mapStateToProps = state => {
     users: state.users
   };
 };
+
+// Pulling getAllUsers frunction from Redux
 const mapDispatchToProps = {
   getAllUsers
 };
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

@@ -1,6 +1,6 @@
 // React Components
 import React, { Component } from 'react';
-import { NavLink, withRouter, Link } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { MdModeEdit, MdPerson } from 'react-icons/md';
 import { FiLogOut } from 'react-icons/fi';
@@ -8,15 +8,7 @@ import { FiLogOut } from 'react-icons/fi';
 // Components
 import LogoAlt from '../../../assets/Logo-Alt';
 import UserModal from '../Users/UserModal'
-import { throwStatement } from '@babel/types';
 
-// function NavBar(props) {
-//   const logout = e => {
-//     e.preventDefault();
-
-//     localStorage.removeItem('token');
-//     props.history.push('/');
-//   };
   class NavBar extends Component {
     constructor(props) {
       super(props)
@@ -24,13 +16,18 @@ import { throwStatement } from '@babel/types';
         show: false
       }
     }
+    
+    // Method allows logout of app, remove token from local storahe
     logout = e => {
       e.preventDefault()
 
       localStorage.removeItem('token')
       this.props.history.push('/')
     }
+
+    // Changes the state of modal to allow it to open or close
     showModal = evt => {
+      evt.preventDefault()
       this.setState({
         show: !this.state.show
       })
@@ -51,6 +48,7 @@ import { throwStatement } from '@babel/types';
           </span>
         </NavLink>
 
+        {/* Click handler allows method on modal to be called */}
         <NavLink exact to='/users' onClick={evt => {
           evt.preventDefault()
           this.showModal(evt)
