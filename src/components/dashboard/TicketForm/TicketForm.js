@@ -4,6 +4,7 @@ import Title from './Title';
 import Description from './Description';
 import Type from './Type';
 import Tried from './Tried';
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
 
 export default class MasterForm extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ export default class MasterForm extends Component {
   _next() {
     let currentStep = this.state.currentStep;
 
-    currentStep = currentStep >= 2 ? 3 : currentStep + 1;
+    currentStep = currentStep >= 3 ? 4 : currentStep + 1;
     this.setState({ currentStep: currentStep });
   }
 
@@ -32,6 +33,32 @@ export default class MasterForm extends Component {
 
     currentStep = currentStep <= 1 ? 1 : currentStep - 1;
     this.setState({ currentStep: currentStep });
+  }
+
+  get getPrev() {
+    let currentStep = this.state.currentStep;
+
+    if (currentStep !== 1) {
+      return (
+        <button className='form-btn' type='button' onClick={this._prev}>
+          <MdKeyboardArrowLeft />
+        </button>
+      );
+    }
+    return null;
+  }
+
+  get getNext() {
+    let currentStep = this.state.currentStep;
+
+    if (currentStep < 4) {
+      return (
+        <button className='form-btn' type='button' onClick={this._next}>
+          <MdKeyboardArrowRight />
+        </button>
+      );
+    }
+    return null;
   }
 
   handleChange = evt => {
@@ -60,7 +87,10 @@ export default class MasterForm extends Component {
         <h1 className='submit-title'>Submit A Ticket</h1>
 
         <div className='step-n-forms'>
-          <p className='step'>Step: {this.state.currentStep}</p>
+          <div className='btn-container'>
+            {this.getPrev}
+            {this.getNext}
+          </div>
 
           <form onSubmit={this.handleSubmit}>
             <Title

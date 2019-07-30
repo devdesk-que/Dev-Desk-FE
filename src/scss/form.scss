@@ -19,6 +19,7 @@
         color: #007fb9;
         font-weight: bold;
         margin-left: 1rem;
+        align-self: flex-start;
     }
 
     .form-group {
@@ -34,8 +35,8 @@
         background: none;
         border: none;
         border-bottom: 1px solid #007fb9;
-        width: 900px;
-        font-size: 4rem;
+        min-width: 700px;
+        font-size: 3rem;
         color: white;
         font-family: 'Shrikhand', cursive;
 
@@ -48,5 +49,25 @@
 
     .form-group input:focus {
         outline: none;
+    }
+
+    .btn-container {
+        width: 128px;
+    }
+
+    .form-btn {
+        background: none;
+        border: none;
+        font-size: 5rem;
+        color: #007fb9;
+        outline: none;
+    }
+
+    .form-btn-final {
+        background: none;
+        border: none;
+        font-size: 3rem;
+        color: #007fb9;
+        margin-left: 1rem;
     }
 }
