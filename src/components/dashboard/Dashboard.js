@@ -12,8 +12,8 @@ import UserModal from './Users/UserModal';
 import TicketForm from './TicketForm/TicketForm';
 
 class App extends Component {
-  // Sets state for Dashboard component
   state = {
+    // Default state for Modal is set to false 
     show: false
   };
 
