@@ -81,9 +81,7 @@ class MasterForm extends Component {
     const { type, description, title, tried, owner, assigned } = this.state;
     const packet = { type, description, title, tried, owner, assigned };
     console.log(packet);
-    this.props.submitTicket(packet).catch(err => {
-      console.log(err);
-    });
+    this.props.submitTicket(packet);
     //   alert(`Your registration detail: \n
     //       type: ${type} \n
     //       description: ${description} \n
@@ -92,9 +90,17 @@ class MasterForm extends Component {
     //       owner: ${owner} \n
     //       assigned: ${assigned}`);
     //
+
+    this.setState({
+      type: '',
+      description: '',
+      title: '',
+      tried: ''
+    });
   };
 
   render() {
+    console.log(this.state);
     return (
       <>
         <h1 className='submit-title'>Submit A Ticket</h1>
@@ -114,17 +120,17 @@ class MasterForm extends Component {
             <Type
               currentStep={this.state.currentStep}
               handleChange={this.handleChange}
-              title={this.state.title}
+              type={this.state.type}
             />
             <Description
               currentStep={this.state.currentStep}
               handleChange={this.handleChange}
-              title={this.state.title}
+              description={this.state.description}
             />
             <Tried
               currentStep={this.state.currentStep}
               handleChange={this.handleChange}
-              title={this.state.title}
+              tried={this.state.tried}
             />
           </form>
         </div>

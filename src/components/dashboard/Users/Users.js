@@ -37,13 +37,8 @@ class Users extends Component {
     }
     const showPageNumbers = pageNumbers.map(number => {
       return (
-        <div className='user-pagi-container'>
-          <ol
-            key={number}
-            id={number}
-            onClick={this.handleClick}
-            className='page-link'
-          >
+        <div className='user-pagi-container' key={number}>
+          <ol id={number} onClick={this.handleClick} className='page-link'>
             {number}
           </ol>
         </div>

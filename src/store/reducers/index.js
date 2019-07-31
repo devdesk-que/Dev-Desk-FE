@@ -97,8 +97,6 @@ export default function devDeskReducer(state = initialState, actions) {
       return {
         ...state,
         loading: false,
-        error: null,
-        tickets: actions.payload,
         isAuth: true
       };
     case GET_SINGLE_TICKET:
