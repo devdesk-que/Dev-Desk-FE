@@ -6,12 +6,12 @@ import { getSingleUser } from '../../../store/actions'
 class UserInformation extends Component {
     constructor(props) {
         super(props);
-        // this.state = {
-        //     id: this.props.id
-        // }
+        this.state = {
+            id: this.props.id
+        }
     }
     componentDidMount() {
-        this.props.getSingleUser(this.props.id)
+        this.props.getSingleUser(this.state.id)
     }
 
     render() {
@@ -28,7 +28,7 @@ const mapStateToProps = state => {
     return {
         loading: state.loading,
         error: state.error,
-        id: state.id
+        // id: state.id
     }
 }
 const mapDispatchToProps = {
