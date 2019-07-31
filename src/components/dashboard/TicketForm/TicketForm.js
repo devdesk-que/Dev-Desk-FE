@@ -90,6 +90,13 @@ class MasterForm extends Component {
     //       owner: ${owner} \n
     //       assigned: ${assigned}`);
     //
+
+    this.setState({
+      type: '',
+      description: '',
+      title: '',
+      tried: ''
+    });
   };
 
   render() {
