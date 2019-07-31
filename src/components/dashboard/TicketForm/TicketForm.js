@@ -84,13 +84,14 @@ class MasterForm extends Component {
     this.props.submitTicket(packet).catch(err => {
       console.log(err);
     });
-    alert(`Your registration detail: \n 
-        type: ${type} \n 
-        description: ${description} \n
-        title: ${title} \n
-        tried: ${tried} \n
-        owner: ${owner} \n
-        assigned: ${assigned}`);
+    //   alert(`Your registration detail: \n
+    //       type: ${type} \n
+    //       description: ${description} \n
+    //       title: ${title} \n
+    //       tried: ${tried} \n
+    //       owner: ${owner} \n
+    //       assigned: ${assigned}`);
+    //
   };
 
   render() {
