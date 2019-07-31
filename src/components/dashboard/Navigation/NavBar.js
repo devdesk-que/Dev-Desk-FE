@@ -1,6 +1,6 @@
 // React Components
 import React, { Component } from 'react';
-import { NavLink, withRouter, Link } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { MdModeEdit, MdPerson } from 'react-icons/md';
 import { FiLogOut } from 'react-icons/fi';
@@ -8,7 +8,7 @@ import { FiLogOut } from 'react-icons/fi';
 // Components
 import LogoAlt from '../../../assets/Logo-Alt';
 import UserModal from '../Users/UserModal';
-import { throwStatement } from '@babel/types';
+// import { throwStatement } from '@babel/types';
 
 // function NavBar(props) {
 //   const logout = e => {
@@ -34,6 +34,7 @@ class NavBar extends Component {
   };
 
   showModal = evt => {
+    evt.preventDefault()
     this.setState({
       show: !this.state.show
     });
