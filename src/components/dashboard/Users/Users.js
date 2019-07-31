@@ -27,7 +27,7 @@ class Users extends Component {
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
     const showUsers = currentUsers.map(user => {
-      return <User key={user.id} user={user} />;
+      return <User key={user.id} user={user} id={user.id} />;
     });
 
     // displaying page numbers for pagination
