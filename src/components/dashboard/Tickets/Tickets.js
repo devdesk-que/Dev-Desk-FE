@@ -14,6 +14,7 @@ export default class Tickets extends Component {
       currentPage: Number(evt.target.id)
     })
   }
+
   render() {
     const { currentPage, ticketsPerPage } = this.state
     const tickets = this.props.tickets
@@ -23,7 +24,7 @@ export default class Tickets extends Component {
     const currentTickets = tickets.slice(indexOfFirstTicket, indexOfLastTicket)
 
     const displayTickets = currentTickets.map(ticket => {
-      return <Ticket key={ticket.id} ticket={ticket} />
+      return <Ticket key={ticket.id} ticket={ticket} id={ticket.id} clickHandler={this.onClick} />
     })
 
     const pageNumbers = [];
