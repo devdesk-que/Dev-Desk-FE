@@ -28,7 +28,7 @@ const mapStateToProps = state => {
     return {
         loading: state.loading,
         error: state.error,
-        // id: state.id
+        id: state.id
     }
 }
 const mapDispatchToProps = {
