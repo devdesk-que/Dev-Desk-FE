@@ -79,10 +79,10 @@ export const getSingleUser = id => dispatch => {
   dispatch({ type: LOADING });
 
   useAuth()
-    .get('https://devdesk-backend.herokuapp.com/api/users/:id', id)
+    .get(`https://devdesk-backend.herokuapp.com/api/users/${id}`)
     .then(res => {
       dispatch({ type: GET_SINGLE_USER, payload: res.data });
-      console.log('!!!THIS IS WORKING?');
+      console.log('!!!THIS IS WORKING?', res,);
     })
     .catch(err => {
       dispatch({ type: ERROR });
