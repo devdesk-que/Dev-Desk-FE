@@ -71,7 +71,6 @@ class MasterForm extends Component {
     evt.preventDefault();
 
     this.setState({
-      ...this.state,
       [evt.target.name]: evt.target.value
     });
   };
@@ -114,17 +113,17 @@ class MasterForm extends Component {
             <Type
               currentStep={this.state.currentStep}
               handleChange={this.handleChange}
-              title={this.state.title}
+              type={this.state.type}
             />
             <Description
               currentStep={this.state.currentStep}
               handleChange={this.handleChange}
-              title={this.state.title}
+              description={this.state.description}
             />
             <Tried
               currentStep={this.state.currentStep}
               handleChange={this.handleChange}
-              title={this.state.title}
+              tried={this.state.tried}
             />
           </form>
         </div>
