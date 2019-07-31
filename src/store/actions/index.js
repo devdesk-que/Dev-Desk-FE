@@ -11,6 +11,7 @@ export const GET_TICKETS_ALL = 'GET_TICKETS_ALL';
 export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS';
 export const GET_USERS_ERROR = 'GET_USERS_ERROR';
 export const GET_SINGLE_USER = 'GET_SINGLE_USER';
+export const SUBMIT_TICKET = 'SUBMIT_TICKET';
 
 export const login = credentials => dispatch => {
   dispatch({ type: LOADING });
@@ -86,5 +87,20 @@ export const getSingleUser = id => dispatch => {
     .catch(err => {
       dispatch({ type: ERROR });
       console.log('Get User Error:', err);
+    });
+};
+
+export const submitTicket = newTicketPacket => async dispatch => {
+  dispatch({ type: LOADING });
+
+  useAuth()
+    .post('https://devdesk-backend.herokuapp.com/api/tickets/', newTicketPacket)
+    .then(res => {
+      console.log('!!!!!!:', newTicketPacket);
+      dispatch({ type: SUBMIT_TICKET, payload: res.data });
+    })
+    .catch(err => {
+      console.log('Err:', err.response);
+      dispatch({ type: NEW_USER_ERROR, payload: err.response.message });
     });
 };

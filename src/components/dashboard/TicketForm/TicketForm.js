@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
+
+import { submitTicket } from '../../../store/actions';
 
 import Title from './Title';
 import Description from './Description';
 import Type from './Type';
 import Tried from './Tried';
-import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
 
-export default class MasterForm extends Component {
+class MasterForm extends Component {
   constructor(props) {
     super(props);
     // Set the initial input values
@@ -15,7 +18,10 @@ export default class MasterForm extends Component {
       type: '',
       description: '',
       title: '',
-      tried: ''
+      tried: '',
+      owner: localStorage.getItem('id'),
+      assigned: null
+      // date: new Date()
     };
     this._next = this._next.bind(this);
     this._prev = this._prev.bind(this);
@@ -72,13 +78,19 @@ export default class MasterForm extends Component {
   // Trigger an alert on form submission
   handleSubmit = evt => {
     evt.preventDefault();
-
-    const { type, description, title, tried } = this.state;
+    const { type, description, title, tried, owner, assigned } = this.state;
+    const packet = { type, description, title, tried, owner, assigned };
+    console.log(packet);
+    this.props.submitTicket(packet).catch(err => {
+      console.log(err);
+    });
     alert(`Your registration detail: \n 
         type: ${type} \n 
         description: ${description} \n
         title: ${title} \n
-        tried: ${tried}`);
+        tried: ${tried} \n
+        owner: ${owner} \n
+        assigned: ${assigned}`);
   };
 
   render() {
@@ -119,3 +131,17 @@ export default class MasterForm extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  loading: state.loading,
+  error: state.error
+});
+
+const mapDispatchToProps = {
+  submitTicket
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MasterForm);
