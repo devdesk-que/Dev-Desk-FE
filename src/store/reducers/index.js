@@ -7,7 +7,8 @@ import {
   NEW_USER_ERROR,
   GET_TICKETS_ALL,
   GET_USERS_SUCCESS,
-  GET_SINGLE_USER
+  GET_SINGLE_USER,
+  SUBMIT_TICKET
 } from '../actions';
 
 const initialState = {
@@ -90,7 +91,15 @@ export default function devDeskReducer(state = initialState, actions) {
         error: null,
         id: actions.payload,
         isAuth: true
-      }
+      };
+    case SUBMIT_TICKET:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        tickets: actions.payload,
+        isAuth: true
+      };
     default:
       return state;
   }
