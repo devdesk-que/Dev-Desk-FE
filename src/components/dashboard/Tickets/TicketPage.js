@@ -11,7 +11,7 @@ class TicketPage extends Component {
         }
     }
     componentDidMount() {
-        this.props.getSingleTicket()
+        this.props.getSingleTicket(this.state.id)
     }
     render() {
         return (
