@@ -97,8 +97,9 @@ export const submitTicket = newTicketPacket => async dispatch => {
     .post('https://devdesk-backend.herokuapp.com/api/tickets/', newTicketPacket)
     .then(res => {
       console.log('!!!!!!:', newTicketPacket);
-      dispatch({ type: SUBMIT_TICKET, payload: res.data });
+      dispatch({ type: SUBMIT_TICKET });
     })
+    .then(() => getTickets()(dispatch))
     .catch(err => {
       console.log('Err:', err.response);
       dispatch({ type: NEW_USER_ERROR, payload: err.response.message });
