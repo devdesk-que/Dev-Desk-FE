@@ -25,11 +25,17 @@ class TicketPage extends Component {
     return (
       <>
         <NavBar />
-        <h1>{id}</h1>
-        <h1>{type}</h1>
-        <h1>{description}</h1>
-        <h1>{owner}</h1>
-        <h1>{assigned}</h1>
+        <div className='st-card'>
+          <div className='top-content'>
+            <h1>{id}</h1>
+            <h1>{type}</h1>
+          </div>
+          <div className='bottom-content'>
+            <h1>{description}</h1>
+            <h1>{owner}</h1>
+            <h1>{assigned}</h1>
+          </div>
+        </div>
       </>
     );
   }
