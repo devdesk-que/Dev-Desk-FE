@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getSingleTicket } from '../../../store/actions';
+import {
+  getSingleTicket,
+  editTicket,
+  deleteTicket
+} from '../../../store/actions';
 import NavBar from '../Navigation/NavBar';
 // import { placeholder } from '@babel/types';
 
@@ -52,7 +56,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  getSingleTicket
+  getSingleTicket,
+  editTicket,
+  deleteTicket
 };
 
 export default connect(
