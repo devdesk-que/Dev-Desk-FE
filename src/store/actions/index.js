@@ -76,7 +76,7 @@ export const getAllUsers = () => async dispatch => {
     });
 };
 
-export const getSingleUser = id => async dispatch => {
+export const getSingleUser = id => dispatch => {
   dispatch({ type: LOADING });
 
   useAuth()

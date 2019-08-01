@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const User = props => {
-  const { id, username, authType } = props.user;
+  const { id, username, authType } = props.user
   return (
     <div className='user'>
       <Link className='user-link' to={`/userinformation/${id}`}>
@@ -12,7 +12,7 @@ const User = props => {
         <p>{authType}</p>
       </Link>
     </div>
-  );
-};
+  )
+}
 
-export default User;
+export default User
