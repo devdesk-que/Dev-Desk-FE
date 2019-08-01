@@ -11,7 +11,8 @@ class UserInformation extends Component {
         }
     }
     componentDidMount() {
-        this.props.getSingleUser(this.state.id)
+        const id = this.props.id
+        this.props.getSingleUser(id)
     }
 
     render() {
@@ -24,11 +25,12 @@ class UserInformation extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log('UserInformation', state)
+    console.log('THIS IS THE STATE BEING MAPPED:', state)
     return {
         loading: state.loading,
         error: state.error,
-        id: state.id
+        // user: state.user
+        id: state.user.id
     }
 }
 const mapDispatchToProps = {
