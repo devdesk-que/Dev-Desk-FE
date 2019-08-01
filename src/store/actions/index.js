@@ -12,7 +12,7 @@ export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS';
 export const GET_USERS_ERROR = 'GET_USERS_ERROR';
 export const GET_SINGLE_USER = 'GET_SINGLE_USER';
 export const SUBMIT_TICKET = 'SUBMIT_TICKET';
-export const GET_SINGLE_TICKET = 'GET_SINGLE_TICKET'
+export const GET_SINGLE_TICKET = 'GET_SINGLE_TICKET';
 
 export const login = credentials => dispatch => {
   dispatch({ type: LOADING });
@@ -83,7 +83,7 @@ export const getSingleUser = id => async dispatch => {
     .get(`https://devdesk-backend.herokuapp.com/api/users/${id}`)
     .then(res => {
       dispatch({ type: GET_SINGLE_USER, payload: res.data });
-      console.log('!!!THIS IS WORKING?', res,);
+      console.log('!!!THIS IS WORKING?', res);
     })
     .catch(err => {
       dispatch({ type: ERROR });
@@ -92,19 +92,19 @@ export const getSingleUser = id => async dispatch => {
 };
 
 export const getSingleTicket = id => dispatch => {
-  dispatch({ type: LOADING })
+  dispatch({ type: LOADING });
 
   useAuth()
     .get(`https://devdesk-backend.herokuapp.com/api/tickets/${id}`)
     .then(res => {
-      dispatch({ type: GET_SINGLE_TICKET, payload: res.data })
-      console.log('Single Ticket Data: ', res)
+      dispatch({ type: GET_SINGLE_TICKET, payload: res.data });
+      console.log('Single Ticket Data: ', res);
     })
     .catch(err => {
-      dispatch({ type: ERROR })
-      console.log('Single Ticket Error: ', err)
-    })
-}
+      dispatch({ type: ERROR });
+      console.log('Single Ticket Error: ', err);
+    });
+};
 
 export const submitTicket = newTicketPacket => async dispatch => {
   dispatch({ type: LOADING });
