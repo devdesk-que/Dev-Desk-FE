@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { getSingleUser } from '../../../store/actions'
-
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getSingleUser } from '../../../store/actions';
 
 
 class UserInformation extends Component {
@@ -20,7 +19,6 @@ class UserInformation extends Component {
             </div>
         )
     }
-}
 
 
 const mapStateToProps = state => {
@@ -31,11 +29,12 @@ const mapStateToProps = state => {
         id: state.id,
     }
 }
+
 const mapDispatchToProps = {
-    getSingleUser
+  getSingleUser
 };
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(UserInformation)
+  mapStateToProps,
+  mapDispatchToProps
+)(UserInformation);
