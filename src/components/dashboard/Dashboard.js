@@ -13,7 +13,7 @@ import TicketForm from './TicketForm/TicketForm';
 
 class App extends Component {
   state = {
-    // Default state for Modal is set to false 
+    // Default state for Modal is set to false
     show: false
   };
 

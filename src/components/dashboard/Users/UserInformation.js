@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSingleUser } from '../../../store/actions';
+import NavBar from '../Navigation/NavBar';
 
 class UserInformation extends Component {
   componentDidMount() {
@@ -9,12 +10,22 @@ class UserInformation extends Component {
   }
 
   render() {
-    const { id } = this.props;
-    console.log('The data is here, but can not be used?', id);
+    if (this.props.singleUser === null) {
+      return (
+        <>
+          <NavBar />
+          <p>No user selected</p>
+        </>
+      );
+    }
+
+    const { id, username } = this.props.singleUser;
     return (
-      <div>
-        <p>Well i know this will work</p>
-      </div>
+      <>
+        <NavBar />
+        <h1>{id}</h1>
+        <h1>{username}</h1>
+      </>
     );
   }
 }
@@ -24,7 +35,7 @@ const mapStateToProps = state => {
   return {
     loading: state.loading,
     error: state.error,
-    id: state.id
+    singleUser: state.id
   };
 };
 
