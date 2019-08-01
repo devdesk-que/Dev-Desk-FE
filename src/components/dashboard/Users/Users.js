@@ -9,14 +9,9 @@ import User from './User';
 class Users extends Component {
   state = {
     currentPage: 1,
-    usersPerPage: 10,
-    showUserModal: false
-  }
-  showThisModal = evt => {
-    this.setState({
-      showUserModal: !this.state.showUserModal
-    })
-  }
+    usersPerPage: 10
+  };
+
   // Handles switch to different pages on click
   handleClick = evt => {
     this.setState({
@@ -32,7 +27,7 @@ class Users extends Component {
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
     const showUsers = currentUsers.map(user => {
-      return <User key={user.id} user={user} id={user.id} onClose={this.showThisModal} showUserModal={this.state.showUserModal} />;
+      return <User key={user.id} user={user} id={user.id} />;
     });
 
     // displaying page numbers for pagination

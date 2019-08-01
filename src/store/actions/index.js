@@ -76,11 +76,10 @@ export const getAllUsers = () => async dispatch => {
     });
 };
 
-export const getSingleUser = id => dispatch => {
+export const getSingleUser = id => async dispatch => {
   dispatch({ type: LOADING });
 
   useAuth()
-    // const id = this.props.match.params.id
     .get(`https://devdesk-backend.herokuapp.com/api/users/${id}`)
     .then(res => {
       dispatch({ type: GET_SINGLE_USER, payload: res.data });
@@ -96,7 +95,6 @@ export const getSingleTicket = id => dispatch => {
   dispatch({ type: LOADING })
 
   useAuth()
-    // const id = this.props.match.params
     .get(`https://devdesk-backend.herokuapp.com/api/tickets/${id}`)
     .then(res => {
       dispatch({ type: GET_SINGLE_TICKET, payload: res.data })
