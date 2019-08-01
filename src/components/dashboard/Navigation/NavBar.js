@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { MdModeEdit, MdPerson } from 'react-icons/md';
+import { MdPerson } from 'react-icons/md';
 import { FiLogOut } from 'react-icons/fi';
 
 // Components
@@ -82,7 +82,6 @@ class NavBar extends Component {
 
 // From the Redux, we're using the state user.
 const mapStateToProps = state => {
-  console.log('NAVBAR STATE:', state);
   return {
     user: state.user
   };
