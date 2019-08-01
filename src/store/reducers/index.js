@@ -104,7 +104,7 @@ export default function devDeskReducer(state = initialState, actions) {
         ...state,
         loading: false,
         error: null,
-        tickets: actions.payload,
+        ticket: actions.payload,
         isAuth: true
       }
     default:
