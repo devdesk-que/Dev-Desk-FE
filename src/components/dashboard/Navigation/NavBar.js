@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { MdModeEdit, MdPerson } from 'react-icons/md';
+import { MdPerson } from 'react-icons/md';
 import { FiLogOut } from 'react-icons/fi';
 
 // Components

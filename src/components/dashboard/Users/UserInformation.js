@@ -23,8 +23,12 @@ class UserInformation extends Component {
     return (
       <>
         <NavBar />
-        <h1>{id}</h1>
-        <h1>{username}</h1>
+        <div className='su-bg'>
+          <div className='su-card'>
+            <h1>ID: {id}</h1>
+            <h1>Username: {username}</h1>
+          </div>
+        </div>
       </>
     );
   }
