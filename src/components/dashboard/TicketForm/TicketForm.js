@@ -80,16 +80,7 @@ class MasterForm extends Component {
     evt.preventDefault();
     const { type, description, title, tried, owner, assigned } = this.state;
     const packet = { type, description, title, tried, owner, assigned };
-    console.log(packet);
     this.props.submitTicket(packet);
-    //   alert(`Your registration detail: \n
-    //       type: ${type} \n
-    //       description: ${description} \n
-    //       title: ${title} \n
-    //       tried: ${tried} \n
-    //       owner: ${owner} \n
-    //       assigned: ${assigned}`);
-    //
 
     this.setState({
       type: '',
@@ -100,7 +91,6 @@ class MasterForm extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <>
         <h1 className='submit-title'>Submit A Ticket</h1>

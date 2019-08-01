@@ -12,7 +12,6 @@ class TicketPage extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.getSingleTicket(id);
-    console.log('SINGLE TICKET PROPS', this.props);
   }
 
   render() {
@@ -48,7 +47,6 @@ class TicketPage extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('THIS IS THE STATE BEING MAPPED:', state);
   return {
     loading: state.loading,
     error: state.error,

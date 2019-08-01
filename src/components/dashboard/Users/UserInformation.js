@@ -35,7 +35,6 @@ class UserInformation extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('THIS IS THE STATE BEING MAPPED:', state);
   return {
     loading: state.loading,
     error: state.error,

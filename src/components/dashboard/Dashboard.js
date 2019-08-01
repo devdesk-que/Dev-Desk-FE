@@ -52,7 +52,6 @@ class App extends Component {
 
 // From the Redux, we're using the states loading, error, and tickets.
 const mapStateToProps = state => {
-  console.log('DASHBOARD STATE:', state);
   return {
     loading: state.loading,
     error: state.error,

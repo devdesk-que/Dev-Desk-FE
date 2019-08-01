@@ -82,7 +82,6 @@ class NavBar extends Component {
 
 // From the Redux, we're using the state user.
 const mapStateToProps = state => {
-  console.log('NAVBAR STATE:', state);
   return {
     user: state.user
   };
