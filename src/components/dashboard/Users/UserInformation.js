@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSingleUser } from '../../../store/actions';
+import NavBar from '../Navigation/NavBar';
 
 class UserInformation extends Component {
   componentDidMount() {
@@ -12,9 +13,10 @@ class UserInformation extends Component {
     const { id } = this.props;
     console.log('The data is here, but can not be used?', id);
     return (
-      <div>
+      <>
+        <NavBar />
         <p>Well i know this will work</p>
-      </div>
+      </>
     );
   }
 }

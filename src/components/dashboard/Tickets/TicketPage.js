@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSingleTicket } from '../../../store/actions';
+import NavBar from '../Navigation/NavBar';
 // import { placeholder } from '@babel/types';
 
 class TicketPage extends Component {
@@ -13,9 +14,10 @@ class TicketPage extends Component {
     const { id } = this.props;
     console.log('The data is here, but can not be used?', id);
     return (
-      <div>
+      <>
+        <NavBar />
         <p>Well i know this will work</p>
-      </div>
+      </>
     );
   }
 }
