@@ -100,8 +100,8 @@ export const getSingleTicket = id => dispatch => {
   useAuth()
     .get(`https://devdesk-backend.herokuapp.com/api/tickets/${id}`)
     .then(res => {
-      dispatch({ type: GET_SINGLE_TICKET, payload: res.data });
       console.log('Single Ticket Data: ', res);
+      dispatch({ type: GET_SINGLE_TICKET, payload: res.data });
     })
     .catch(err => {
       dispatch({ type: ERROR });

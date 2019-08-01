@@ -8,15 +8,28 @@ class TicketPage extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.getSingleTicket(id);
+    console.log('SINGLE TICKET PROPS', this.props);
   }
 
   render() {
-    const { id } = this.props;
-    console.log('The data is here, but can not be used?', id);
+    if (this.props.singleTicket === null) {
+      return (
+        <>
+          <NavBar />
+          <p>No ticket selected</p>
+        </>
+      );
+    }
+
+    const { id, type, description, owner, assigned } = this.props.singleTicket;
     return (
       <>
         <NavBar />
-        <p>Well i know this will work</p>
+        <h1>{id}</h1>
+        <h1>{type}</h1>
+        <h1>{description}</h1>
+        <h1>{owner}</h1>
+        <h1>{assigned}</h1>
       </>
     );
   }
@@ -27,7 +40,8 @@ const mapStateToProps = state => {
   return {
     loading: state.loading,
     error: state.error,
-    id: state.id
+    id: state.id,
+    singleTicket: state.singleTicket
   };
 };
 

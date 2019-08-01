@@ -10,12 +10,21 @@ class UserInformation extends Component {
   }
 
   render() {
-    const { id } = this.props;
-    console.log('The data is here, but can not be used?', id);
+    if (this.props.singleUser === null) {
+      return (
+        <>
+          <NavBar />
+          <p>No user selected</p>
+        </>
+      );
+    }
+
+    const { id, username } = this.props.singleUser;
     return (
       <>
         <NavBar />
-        <p>Well i know this will work</p>
+        <h1>{id}</h1>
+        <h1>{username}</h1>
       </>
     );
   }
@@ -26,7 +35,7 @@ const mapStateToProps = state => {
   return {
     loading: state.loading,
     error: state.error,
-    id: state.id
+    singleUser: state.id
   };
 };
 
