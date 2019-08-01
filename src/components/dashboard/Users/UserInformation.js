@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getSingleUser } from '../../../store/actions';
+import { getSingleUser, editUser, deleteUser } from '../../../store/actions';
 import NavBar from '../Navigation/NavBar';
 
 class UserInformation extends Component {
@@ -40,7 +40,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  getSingleUser
+  getSingleUser,
+  editUser,
+  deleteUser
 };
 
 export default connect(
