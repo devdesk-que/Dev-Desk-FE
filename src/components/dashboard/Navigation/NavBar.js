@@ -34,7 +34,7 @@ class NavBar extends Component {
   };
 
   showModal = evt => {
-    evt.preventDefault()
+    evt.preventDefault();
     this.setState({
       show: !this.state.show
     });
@@ -50,12 +50,6 @@ class NavBar extends Component {
 
         {/* Container for the icons, links to /edit and /users */}
         <div className='icons-container'>
-          <NavLink exact to='/edit'>
-            <span role='img' aria-label='pencil' className='icons'>
-              <MdModeEdit />
-            </span>
-          </NavLink>
-
           <NavLink
             exact
             to='/users'
