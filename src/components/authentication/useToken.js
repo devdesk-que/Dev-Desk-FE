@@ -6,7 +6,6 @@ import { LOGIN_SUCCESS } from '../../store/actions/';
 // function that saves the action.payload.token, as token.
 const useToken = store => next => action => {
   if (action.type === LOGIN_SUCCESS) {
-    console.log('Middleware Called', action.payload.token);
     localStorage.setItem('token', action.payload.token);
     localStorage.setItem('id', action.payload.id);
   }

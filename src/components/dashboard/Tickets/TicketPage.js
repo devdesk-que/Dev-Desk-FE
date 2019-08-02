@@ -13,7 +13,6 @@ class TicketPage extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.getSingleTicket(id);
-    console.log('SINGLE TICKET PROPS', this.props);
   }
   onChange = evt => {
       evt.preventDefault()
@@ -49,6 +48,7 @@ class TicketPage extends Component {
     return (
       <>
         <NavBar />
+
         <div className='st-card'>
           <div className='top-content'>
             <h1>ID: {id}</h1>
@@ -93,6 +93,19 @@ class TicketPage extends Component {
                 <button type='submit'>Submit Changes</button>
                 <button>Delete Ticket</button>
               </form>
+
+        //<div className='st-bg'>
+         // <div className='st-card'>
+          //  <div className='top-content'>
+           //   <h1>{id}</h1>
+            //  <h1>{type}</h1>
+            //</div>
+            //<div className='bottom-content'>
+             // <h1>{description}</h1>
+             // <h1>{owner}</h1>
+             // <h1>{assigned}</h1>
+            //</div>
+
           </div>
         </div>
       </>
@@ -101,7 +114,6 @@ class TicketPage extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('THIS IS THE STATE BEING MAPPED:', state);
   return {
     loading: state.loading,
     error: state.error,

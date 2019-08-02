@@ -26,7 +26,6 @@ export const login = credentials => async dispatch => {
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log('ERR:', err.response);
       dispatch({ type: ERROR, payload: err.response.data.message });
     });
 };
@@ -37,7 +36,6 @@ export const getTickets = () => async dispatch => {
   useAuth()
     .get('https://devdesk-backend.herokuapp.com/api/tickets/')
     .then(res => {
-      console.log('GET RES:', res);
       dispatch({ type: GET_TICKETS_ALL, payload: res.data });
     })
     .catch(err => {
@@ -53,13 +51,10 @@ export const createUser = newUserPacket => async dispatch => {
       'https://devdesk-backend.herokuapp.com/api/auth/register',
       newUserPacket
     )
-    // console.log(newUserPacket)
     .then(res => {
-      console.log('!!!!!!:', newUserPacket);
       dispatch({ type: NEW_USER_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log('Err:', err.response);
       dispatch({ type: NEW_USER_ERROR, payload: err.response.message });
     });
 };
@@ -70,12 +65,10 @@ export const getAllUsers = () => async dispatch => {
   useAuth()
     .get('https://devdesk-backend.herokuapp.com/api/users')
     .then(res => {
-      console.log(res);
       dispatch({ type: GET_USERS_SUCCESS, payload: res.data });
     })
     .catch(err => {
       dispatch({ type: GET_USERS_ERROR });
-      console.log('Get User Err:', err);
     });
 };
 
@@ -86,11 +79,9 @@ export const getSingleUser = id => async dispatch => {
     .get(`https://devdesk-backend.herokuapp.com/api/users/${id}`)
     .then(res => {
       dispatch({ type: GET_SINGLE_USER, payload: res.data });
-      console.log('!!!THIS IS WORKING?', res);
     })
     .catch(err => {
       dispatch({ type: ERROR });
-      console.log('Get User Error:', err);
     });
 };
 
@@ -100,12 +91,10 @@ export const getSingleTicket = id => dispatch => {
   useAuth()
     .get(`https://devdesk-backend.herokuapp.com/api/tickets/${id}`)
     .then(res => {
-      console.log('Single Ticket Data: ', res);
       dispatch({ type: GET_SINGLE_TICKET, payload: res.data });
     })
     .catch(err => {
       dispatch({ type: ERROR });
-      console.log('Single Ticket Error: ', err);
     });
 };
 
@@ -115,12 +104,10 @@ export const submitTicket = newTicketPacket => async dispatch => {
   useAuth()
     .post('https://devdesk-backend.herokuapp.com/api/tickets/', newTicketPacket)
     .then(res => {
-      console.log('!!!!!!:', newTicketPacket);
       dispatch({ type: SUBMIT_TICKET });
     })
     .then(() => getTickets()(dispatch))
     .catch(err => {
-      console.log('Err:', err.response);
       dispatch({ type: NEW_USER_ERROR, payload: err.response.message });
     });
 };
@@ -134,11 +121,9 @@ export const editTicket = editedTicketPacket => async dispatch => {
       editedTicketPacket
     )
     .then(res => {
-      console.log('!!!!!!:', editedTicketPacket);
       dispatch({ type: SUBMIT_TICKET, payload: res.data });
     })
     .catch(err => {
-      console.log('Err:', err.response);
       dispatch({ type: ERROR, payload: err.response.message });
     });
 };
@@ -149,11 +134,9 @@ export const editUser = userPacket => async dispatch => {
   useAuth()
     .put('https://devdesk-backend.herokuapp.com/api/users/:id', userPacket)
     .then(res => {
-      console.log('!!!!!:', userPacket);
       dispatch({ type: EDIT_USER, payload: res.data });
     })
     .catch(err => {
-      console.log('Err:', err.response);
       dispatch({ type: ERROR, payload: err.response.message });
     });
 };
@@ -164,11 +147,9 @@ export const deleteUser = id => async dispatch => {
   useAuth()
     .delete('https://devdesk-backend.herokuapp.com/api/users/:id', id)
     .then(res => {
-      console.log('!!!!!!:', id);
       dispatch({ type: DELETE_USER });
     })
     .catch(err => {
-      console.log('Err:', err.response);
       dispatch({ type: ERROR, payload: err.response.message });
     });
 };
@@ -179,11 +160,9 @@ export const deleteTicket = id => async dispatch => {
   useAuth()
     .delete('https://devdesk-backend.herokuapp.com/api/tickets/:id', id)
     .then(res => {
-      console.log('!!!!!!:', id);
       dispatch({ type: DELETE_TICKET });
     })
     .catch(err => {
-      console.log('Err:', err.response);
       dispatch({ type: ERROR, payload: err.response.message });
     });
 };

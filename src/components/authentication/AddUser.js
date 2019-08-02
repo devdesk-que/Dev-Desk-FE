@@ -40,14 +40,9 @@ class AddUser extends Component {
   handleSubmit = async evt => {
     evt.preventDefault();
 
-    this.props
-      .createUser(this.state)
-      .then(() => {
-        this.props.history.push('./');
-      })
-      .catch(err => {
-        console.error(err);
-      });
+    this.props.createUser(this.state).then(() => {
+      this.props.history.push('./');
+    });
   };
 
   render() {

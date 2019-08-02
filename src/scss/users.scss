@@ -70,6 +70,8 @@
     color: #007fb9;
     background: rgba(0, 0, 0, 0.2);
     text-align: center;
+    border-radius: 8px;
+    border: 3px solid rgba(255, 255, 255, 0.4);
 }
 
 .close-btn {
@@ -87,4 +89,32 @@
     text-align: center;
     transition: background 250ms ease-in-out, transform 150ms ease;
     margin-top: 1rem;
+}
+
+.su-bg {
+    height: 100vh;
+    background: repeating-linear-gradient(45deg, rgba(38, 38, 38, 0.04) 0px, rgba(38, 38, 38, 0.04) 104px, rgba(106, 106, 106, 0.04) 104px, rgba(106, 106, 106, 0.04) 208px), repeating-linear-gradient(45deg, rgba(41, 41, 41, 0.14) 0px, rgba(41, 41, 41, 0.14) 99px, rgba(197, 197, 197, 0.14) 99px, rgba(197, 197, 197, 0.14) 198px), linear-gradient(90deg, rgb(94, 165, 255), rgb(8, 75, 110));
+
+    .su-card {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 10px solid rgba(255, 255, 255, 0.459);
+        border-radius: 12px;
+        min-width: 500px;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 126, 185, 0.8);
+
+        h1 {
+            color: white;
+            font-size: 5rem;
+            margin: 1rem;
+        }
+    }
 }

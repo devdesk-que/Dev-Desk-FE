@@ -28,15 +28,10 @@ class Login extends Component {
 
   handleSubmit = async evt => {
     evt.preventDefault();
-    this.props
-      .login(this.state)
-      .then(() => {
-        // Pushes user to dashboard page upon successful login attempt
-        this.props.history.push('/dashboard');
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.props.login(this.state).then(() => {
+      // Pushes user to dashboard page upon successful login attempt
+      this.props.history.push('/dashboard');
+    });
     // Awaits Login, goes through reducer and sets auth
     // if isAuth is true, right hand side of && runs
     // if isAuth is false, right hand will not run

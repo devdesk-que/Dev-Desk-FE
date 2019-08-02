@@ -53,12 +53,13 @@ export default class Tickets extends Component {
         </div>
       );
     });
+
     return (
       // Maps and passes All Tickets to the Ticket Component
       <div className='tickets'>
         <h1 className='tickets-title'>All Tickets</h1>
         {displayTickets}
-        {displayPageNumbers}
+        <div className='enumerate-tickets'>{displayPageNumbers}</div>
         {/* {this.props.tickets.map(ticket => {
           return <Ticket key={ticket.id} ticket={ticket} />;
         })} */}
