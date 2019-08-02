@@ -9,7 +9,13 @@ import NavBar from '../Navigation/NavBar';
 // import { placeholder } from '@babel/types';
 
 class TicketPage extends Component {
+    state = {
+        type: '',
+        description: '',
+        owner: '',
+        assigned: ''
 
+    }
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.getSingleTicket(id);
@@ -21,6 +27,7 @@ class TicketPage extends Component {
         })
   }
   updateTicket = evt => {
+    const id = this.props.match.params.id
       evt.preventDefault()
       const { type, description, owner, assigned } = this.state
 
@@ -33,6 +40,7 @@ class TicketPage extends Component {
           assigned: ''
       })
   }
+
 
   render() {
     if (this.props.singleTicket === null) {
@@ -66,35 +74,37 @@ class TicketPage extends Component {
                     type='text'
                     name='type'
                     placeholder='Type'
-                    value={type}
+                    value={this.state.type}
                     onChange={this.onChange}
                 />
                 <input 
                     type='text'
                     name='description'
                     placeholder='Ticket Description'
-                    value={description}
+                    value={this.state.description}
                     onChange={this.onChange}
                 />
                 <input
                     type='text'
                     name='owner'
                     placeholder='Owner'
-                    value={owner}
+                    value={this.state.owner}
                     onChange={this.onChange}
                 />
                 <input
                     type='text'
                     name='assigned'
                     placeholder='Assigned'
-                    value={assigned}
+                    value={this.state.assigned}
                     onChange={this.onChange}
                 />
                 <button type='submit'>Submit Changes</button>
-                <button>Delete Ticket</button>
+                <button onClick={()=> {
+                    this.props.deleteTicket(id)
+                }}>Delete Ticket</button>
               </form>
 
-        //<div className='st-bg'>
+        {/* //<div className='st-bg'>
          // <div className='st-card'>
           //  <div className='top-content'>
            //   <h1>{id}</h1>
@@ -104,7 +114,7 @@ class TicketPage extends Component {
              // <h1>{description}</h1>
              // <h1>{owner}</h1>
              // <h1>{assigned}</h1>
-            //</div>
+            //</div> */}
 
           </div>
         </div>
@@ -113,12 +123,21 @@ class TicketPage extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, atts) => {
+  // const editTicket = atts.match.params.id ? state.ticket.filter( ticket => ticket.id.toString() === atts.match.params.id )[0] : ({
+  //   type: '',
+  //   description: '',
+  //   owner: '',
+  //   assigned: ''
+  // })
   return {
     loading: state.loading,
     error: state.error,
     id: state.id,
-    singleTicket: state.singleTicket
+    singleTicket: state.singleTicket,
+
+
+
   };
 };
 
