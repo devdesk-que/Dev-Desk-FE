@@ -10,6 +10,15 @@ class UserInformation extends Component {
     this.props.getSingleUser(id);
   }
 
+  deleteUser = async evt => {
+    const id = this.props.match.params.id;
+    console.log('ID', id);
+    evt.preventDefault();
+    this.props.deleteUser(id).then(() => {
+      this.props.history.push('/dashboard');
+    });
+  };
+
   render() {
     if (this.props.singleUser === null) {
       return (
@@ -35,7 +44,7 @@ class UserInformation extends Component {
               <option value='helper'>Helper</option>
             </select>
             <button type='submit'>Edit</button>
-            <MdDeleteForever className='delete' />
+            <MdDeleteForever className='delete' onClick={this.deleteUser} />
           </div>
         </div>
       </>

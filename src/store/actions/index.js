@@ -150,8 +150,8 @@ export const deleteUser = id => async dispatch => {
 
   useAuth()
     .delete(`https://devdesk-backend.herokuapp.com/api/users/${id}`, id)
-    .then(res => {
-      dispatch({ type: DELETE_USER, payload: res.data });
+    .then(() => {
+      dispatch({ type: DELETE_USER });
     })
     .catch(err => {
       dispatch({ type: ERROR, payload: err.response.message });
@@ -162,8 +162,8 @@ export const deleteTicket = id => async dispatch => {
   dispatch({ type: LOADING });
 
   useAuth()
-    .delete(`https://devdesk-backend.herokuapp.com/api/users/${id}`, id)
-    .then(res => {
+    .delete(`https://devdesk-backend.herokuapp.com/api/tickets/${id}`, id)
+    .then(() => {
       dispatch({ type: DELETE_TICKET });
     })
     .catch(err => {

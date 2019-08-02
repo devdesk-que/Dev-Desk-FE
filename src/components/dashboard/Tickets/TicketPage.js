@@ -14,6 +14,7 @@ class TicketPage extends Component {
     super();
     this.state = {};
   }
+
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.getSingleTicket(id);
@@ -42,6 +43,7 @@ class TicketPage extends Component {
 
   deleteTicket = async evt => {
     const id = this.props.match.params.id;
+    console.log('ID:', id);
     evt.preventDefault();
     this.props.deleteTicket(id).then(() => {
       this.props.history.push('/dashboard');
@@ -108,7 +110,7 @@ class TicketPage extends Component {
                 <button type='submit'>Submit Changes</button>
                 <MdDeleteForever
                   className='delete'
-                  onClick={this.deleteTicket}
+                  onClick={this.deleteTicket()}
                 />
               </form>
             </div>
