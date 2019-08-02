@@ -1,0 +1,153 @@
+.signup-bg {
+    height: 100vh;
+    background: linear-gradient(52deg, rgba(163, 163, 163, 0.09) 0%,
+            rgba(163, 163, 163, 0.09) 33.3%,
+            rgba(100, 100, 100, 0.09) 33.3%, rgba(100, 100, 100, 0.09) 66.6%,
+            rgba(162, 162, 162, 0.09) 66.6%, rgba(162, 162, 162, 0.09) 99%),
+        linear-gradient(258deg, rgba(193, 193, 193, 0.06) 0%,
+            rgba(193, 193, 193, 0.06) 33.3%, rgba(169, 169, 169, 0.06) 33.3%,
+            rgba(169, 169, 169, 0.06) 66.6%, rgba(92, 92, 92, 0.06) 66.6%,
+            rgba(92, 92, 92, 0.06) 99%), linear-gradient(129deg, rgba(45, 45, 45, 0.03) 0%,
+            rgba(45, 45, 45, 0.03) 33.3%, rgba(223, 223, 223, 0.03) 33.3%,
+            rgba(223, 223, 223, 0.03) 66.6%, rgba(173, 173, 173, 0.03) 66.6%,
+            rgba(173, 173, 173, 0.03) 99%), linear-gradient(280deg,
+            rgba(226, 226, 226, 0.06) 0%, rgba(226, 226, 226, 0.06) 33.3%,
+            rgba(81, 81, 81, 0.06) 33.3%, rgba(81, 81, 81, 0.06) 66.6%,
+            rgba(186, 186, 186, 0.06) 66.6%, rgba(186, 186, 186, 0.06) 99%),
+        linear-gradient(85deg, rgba(225, 225, 225, 0.04) 0%,
+            rgba(225, 225, 225, 0.04) 33.3%, rgba(95, 95, 95, 0.04) 33.3%,
+            rgba(95, 95, 95, 0.04) 66.6%, rgba(39, 39, 39, 0.04) 66.6%,
+            rgba(39, 39, 39, 0.04) 99%), linear-gradient(128deg,
+            rgba(184, 184, 184, 0.06) 0%, rgba(184, 184, 184, 0.06) 33.3%,
+            rgba(0, 0, 0, 0.06) 33.3%, rgba(0, 0, 0, 0.06) 66.6%,
+            rgba(140, 140, 140, 0.06) 66.6%, rgba(140, 140, 140, 0.06) 99.89999999999999%),
+        linear-gradient(323deg, rgba(40, 40, 40, 0.07) 0%, rgba(40, 40, 40, 0.07) 33.3%,
+            rgba(214, 214, 214, 0.07) 33.3%, rgba(214, 214, 214, 0.07) 66.6%,
+            rgba(190, 190, 190, 0.07) 66.6%, rgba(190, 190, 190, 0.07) 99.89999999999999%),
+        linear-gradient(61deg, rgba(230, 230, 230, 0) 0%, rgba(230, 230, 230, 0) 33.3%,
+            rgba(241, 241, 241, 0) 33.3%, rgba(241, 241, 241, 0) 66.6%,
+            rgba(55, 55, 55, 0) 66.6%, rgba(55, 55, 55, 0) 99%),
+        linear-gradient(0deg, rgba(4, 0, 255, 0.6), rgba(0, 174, 255, 0.8))
+}
+
+.signup-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .signup-content {
+        margin-right: 3rem;
+    }
+
+    .add-user-banner {
+        font-size: 5rem;
+        font-family: 'Berkshire Swash', cursive;
+        color: whitesmoke;
+    }
+
+    .add-user-title {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+        font-family: 'Berkshire Swash', cursive;
+        color: rgba(255, 255, 255, 0.65);
+    }
+
+    .login-link {
+        margin-top: 3rem;
+        text-decoration: none;
+        color: rgba(0, 174, 255, 0.60);
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        float: right;
+    }
+
+    .login-text {
+        font-size: 4rem;
+        color: rgba(255, 255, 255, 0.35);
+        font-family: 'Berkshire Swash', cursive;
+    }
+
+    .back-arr {
+        font-size: 8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .signup-form {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 500px;
+        height: 425px;
+        text-align: center;
+        background: linear-gradient(210deg,
+                #0400ff 0%,
+                #0043d3 40.13%,
+                #007fb9 90%);
+        border-radius: 10px;
+        border: 2px solid rgba(0, 0, 0, 0.233);
+        box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+        color: white;
+    }
+
+    .signup-form input {
+        width: 90%;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        line-height: 3rem;
+        box-sizing: border-box;
+        border: 1px solid rgba(255, 255, 255, 0.281);
+        background-color: rgba(255, 255, 255, 0.219);
+        font-weight: bold;
+        color: white;
+        margin: 1rem;
+    }
+
+    .signup-form input::placeholder {
+        color: rgba(255, 255, 255, 0.555);
+    }
+
+    .signup-form button {
+        border: none;
+        padding: 0.2rem 2rem;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.219);
+        border-radius: 6px;
+        border: 2px solid white;
+        color: #ffffff;
+        width: 90%;
+        font-weight: bold;
+        font-family: sans-serif;
+        font-size: 2.5rem;
+        cursor: pointer;
+        text-align: center;
+        transition: background 250ms ease-in-out, transform 150ms ease;
+        justify-self: flex-end;
+        margin: 3rem 0;
+    }
+
+    .signup-form select {
+        margin: 2rem 0;
+        color: #ffffff;
+        width: 90%;
+        font-family: sans-serif;
+        font-size: 2.5rem;
+        border-radius: 6px;
+        border: 2px solid white;
+        background: rgba(255, 255, 255, 0.219);
+    }
+
+    .error {
+        background: rgba(255, 0, 0, 0.596);
+        color: white;
+        padding: 5px;
+        margin: 1rem 0;
+        border-radius: 10px;
+        font-size: 2rem;
+    }
+}

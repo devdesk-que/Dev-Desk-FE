@@ -1,0 +1,65 @@
+.submit-title {
+    font-family: 'Atomic Age', cursive;
+    font-size: 8rem;
+    color: #007fb9;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #111;
+    text-shadow: 3px 5px rgba(255, 255, 255, 0.65);
+    margin-bottom: 1rem;
+}
+
+.step-n-forms {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+
+    .form-group {
+        margin: 0 2rem;
+        background: none;
+        font-size: 3rem;
+    }
+
+    .form-group input {
+        margin-left: 1rem;
+        height: 4rem;
+        border-radius: 0;
+        background: none;
+        border: none;
+        border-bottom: 1px solid #007fb9;
+        min-width: 700px;
+        font-size: 3rem;
+        color: white;
+        font-family: 'Shrikhand', cursive;
+
+    }
+
+    .form-group input::placeholder {
+        color: rgba(0, 126, 185, 0.50);
+        font-weight: bold;
+    }
+
+    .form-group input:focus {
+        outline: none;
+    }
+
+    .btn-container {
+        width: 128px;
+    }
+
+    .form-btn {
+        background: none;
+        border: none;
+        font-size: 5rem;
+        color: #007fb9;
+        outline: none;
+    }
+
+    .form-btn-final {
+        background: none;
+        border: none;
+        font-size: 3rem;
+        color: #007fb9;
+        margin-left: 2rem;
+    }
+}
