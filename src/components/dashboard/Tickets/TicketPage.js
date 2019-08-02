@@ -110,13 +110,10 @@ class TicketPage extends Component {
                   onChange={this.onChange}
                 />
                 <button type='submit'>Submit Changes</button>
-                <button
-                  onClick={() => {
-                    this.props.deleteTicket(id);
-                  }}
-                >
-                  Delete Ticket
-                </button>
+                <MdDeleteForever
+                  className='delete'
+                  onClick={this.deleteTicket}
+                />
               </form>
             </div>
           </div>
