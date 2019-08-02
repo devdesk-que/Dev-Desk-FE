@@ -86,7 +86,8 @@ class MasterForm extends Component {
       type: '',
       description: '',
       title: '',
-      tried: ''
+      tried: '',
+      currentStep: 1
     });
   };
 

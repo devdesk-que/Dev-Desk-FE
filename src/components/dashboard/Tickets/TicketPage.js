@@ -33,7 +33,7 @@ class TicketPage extends Component {
     evt.preventDefault();
     const { type, description, owner, assigned } = this.state;
 
-    this.props.editTicket({ type, description, owner, assigned });
+    this.props.editTicket(id, { type, description, owner, assigned });
 
     this.setState({
       type: '',
