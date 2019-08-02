@@ -6,6 +6,7 @@ import {
   deleteTicket
 } from '../../../store/actions';
 import NavBar from '../Navigation/NavBar';
+import { MdDeleteForever } from 'react-icons/md';
 // import { placeholder } from '@babel/types';
 
 class TicketPage extends Component {
@@ -96,7 +97,7 @@ class TicketPage extends Component {
                   onChange={this.onChange}
                 />
                 <button type='submit'>Submit Changes</button>
-                <button>Delete Ticket</button>
+                <MdDeleteForever className='delete' />
               </form>
             </div>
           </div>
