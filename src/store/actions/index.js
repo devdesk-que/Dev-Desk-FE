@@ -116,6 +116,7 @@ export const submitTicket = newTicketPacket => async dispatch => {
 export const editTicket = editedTicketPacket => async dispatch => {
   dispatch({ type: LOADING });
 
+  const { id } = editedTicketPacket;
   useAuth()
     .put(
       `https://devdesk-backend.herokuapp.com/api/users/${id}`,
