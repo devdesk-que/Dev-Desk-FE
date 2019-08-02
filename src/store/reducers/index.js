@@ -12,7 +12,7 @@ import {
   GET_SINGLE_TICKET,
   EDIT_USER,
   DELETE_USER,
-  DELETE_TICKET
+  DELETE_TICKET,
 } from '../actions';
 
 const initialState = {

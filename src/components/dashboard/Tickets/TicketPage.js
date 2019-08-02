@@ -10,11 +10,15 @@ import { MdDeleteForever } from 'react-icons/md';
 // import { placeholder } from '@babel/types';
 
 class TicketPage extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
 
+    state = {
+        type: '',
+        description: '',
+        owner: '',
+        assigned: ''
+
+
+    }
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.getSingleTicket(id);
@@ -28,8 +32,11 @@ class TicketPage extends Component {
   };
 
   updateTicket = evt => {
-    evt.preventDefault();
-    const { type, description, owner, assigned } = this.state;
+
+    const id = this.props.match.params.id
+      evt.preventDefault()
+      const { type, description, owner, assigned } = this.state
+
 
     this.props.editTicket({ type, description, owner, assigned });
 
@@ -49,6 +56,7 @@ class TicketPage extends Component {
       this.props.history.push('/dashboard');
     });
   };
+
 
   render() {
     if (this.props.singleTicket === null) {
@@ -80,40 +88,39 @@ class TicketPage extends Component {
               <form onSubmit={this.updateTicket}>
                 Edit Ticket Here:
                 <input
-                  type='text'
-                  name='type'
-                  placeholder='Type'
-                  value={type}
-                  onChange={this.onChange}
+
+                    type='text'
+                    name='type'
+                    placeholder='Type'
+                    value={this.state.type}
+                    onChange={this.onChange}
+                />
+                <input 
+                    type='text'
+                    name='description'
+                    placeholder='Ticket Description'
+                    value={this.state.description}
+                    onChange={this.onChange}
                 />
                 <input
-                  type='text'
-                  name='description'
-                  placeholder='Ticket Description'
-                  value={description}
-                  onChange={this.onChange}
+                    type='text'
+                    name='owner'
+                    placeholder='Owner'
+                    value={this.state.owner}
+                    onChange={this.onChange}
                 />
                 <input
-                  type='text'
-                  name='owner'
-                  placeholder='Owner'
-                  value={owner}
-                  onChange={this.onChange}
-                />
-                <input
-                  type='text'
-                  name='assigned'
-                  placeholder='Assigned'
-                  value={assigned}
-                  onChange={this.onChange}
+                    type='text'
+                    name='assigned'
+                    placeholder='Assigned'
+                    value={this.state.assigned}
+                    onChange={this.onChange}
                 />
                 <button type='submit'>Submit Changes</button>
-                <MdDeleteForever
-                  className='delete'
-                  onClick={this.deleteTicket}
-                />
+                <button onClick={()=> {
+                    this.props.deleteTicket(id)
+                }}>Delete Ticket</button>
               </form>
-            </div>
           </div>
         </div>
       </>
@@ -121,12 +128,21 @@ class TicketPage extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, atts) => {
+  // const editTicket = atts.match.params.id ? state.ticket.filter( ticket => ticket.id.toString() === atts.match.params.id )[0] : ({
+  //   type: '',
+  //   description: '',
+  //   owner: '',
+  //   assigned: ''
+  // })
   return {
     loading: state.loading,
     error: state.error,
     id: state.id,
-    singleTicket: state.singleTicket
+    singleTicket: state.singleTicket,
+
+
+
   };
 };
 
