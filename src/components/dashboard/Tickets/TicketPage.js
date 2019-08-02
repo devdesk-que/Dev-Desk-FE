@@ -40,6 +40,14 @@ class TicketPage extends Component {
     });
   };
 
+  deleteTicket = async evt => {
+    const id = this.props.match.params.id;
+    evt.preventDefault();
+    this.props.deleteTicket(id).then(() => {
+      this.props.history.push('/dashboard');
+    });
+  };
+
   render() {
     if (this.props.singleTicket === null) {
       return (
@@ -51,6 +59,7 @@ class TicketPage extends Component {
     }
 
     const { id, type, description, owner, assigned } = this.props.singleTicket;
+
     return (
       <>
         <NavBar />
@@ -97,7 +106,10 @@ class TicketPage extends Component {
                   onChange={this.onChange}
                 />
                 <button type='submit'>Submit Changes</button>
-                <MdDeleteForever className='delete' />
+                <MdDeleteForever
+                  className='delete'
+                  onClick={this.deleteTicket}
+                />
               </form>
             </div>
           </div>
