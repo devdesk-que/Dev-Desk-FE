@@ -12,7 +12,6 @@ class UserInformation extends Component {
 
   deleteUser = async evt => {
     const id = this.props.match.params.id;
-    console.log('ID', id);
     evt.preventDefault();
     this.props.deleteUser(id).then(() => {
       this.props.history.push('/dashboard');

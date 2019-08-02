@@ -110,7 +110,7 @@ class TicketPage extends Component {
                 <button type='submit'>Submit Changes</button>
                 <MdDeleteForever
                   className='delete'
-                  onClick={this.deleteTicket()}
+                  onClick={this.deleteTicket}
                 />
               </form>
             </div>
