@@ -6,40 +6,56 @@ import {
   deleteTicket
 } from '../../../store/actions';
 import NavBar from '../Navigation/NavBar';
+import { MdDeleteForever } from 'react-icons/md';
 // import { placeholder } from '@babel/types';
 
 class TicketPage extends Component {
+
     state = {
         type: '',
         description: '',
         owner: '',
         assigned: ''
 
+
     }
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.getSingleTicket(id);
   }
+
   onChange = evt => {
-      evt.preventDefault()
-      this.setState({
-          [evt.target.name]: evt.target.value
-        })
-  }
+    evt.preventDefault();
+    this.setState({
+      [evt.target.name]: evt.target.value
+    });
+  };
+
   updateTicket = evt => {
+
     const id = this.props.match.params.id
       evt.preventDefault()
       const { type, description, owner, assigned } = this.state
 
-      this.props.editTicket({ type, description, owner, assigned })
 
-      this.setState({
-          type: '',
-          description: '',
-          owner: '',
-          assigned: ''
-      })
-  }
+    this.props.editTicket({ type, description, owner, assigned });
+
+    this.setState({
+      type: '',
+      description: '',
+      owner: '',
+      assigned: ''
+    });
+  };
+
+  deleteTicket = async evt => {
+    const id = this.props.match.params.id;
+    console.log('ID:', id);
+    evt.preventDefault();
+    this.props.deleteTicket(id).then(() => {
+      this.props.history.push('/dashboard');
+    });
+  };
 
 
   render() {
@@ -53,24 +69,26 @@ class TicketPage extends Component {
     }
 
     const { id, type, description, owner, assigned } = this.props.singleTicket;
+
     return (
       <>
         <NavBar />
-
-        <div className='st-card'>
-          <div className='top-content'>
-            <h1>ID: {id}</h1>
-            <h1>Type: {type}</h1>
-          </div>
-          <div className='bottom-content'>
-            <h1>Description: {description}</h1>
-            <h1>Owner: {owner}</h1>
-            <h1>Assigned: {assigned}</h1>
-          </div>
-          <div>
+        <div className='st-bg'>
+          <div className='st-card'>
+            <div className='top-content'>
+              <h1>ID: {id}</h1>
+              <h1>Type: {type}</h1>
+            </div>
+            <div className='bottom-content'>
+              <h1>Description: {description}</h1>
+              <h1>Owner: {owner}</h1>
+              <h1>Assigned: {assigned}</h1>
+            </div>
+            <div>
               <form onSubmit={this.updateTicket}>
-                  Edit Ticket Here:
+                Edit Ticket Here:
                 <input
+
                     type='text'
                     name='type'
                     placeholder='Type'
@@ -103,19 +121,6 @@ class TicketPage extends Component {
                     this.props.deleteTicket(id)
                 }}>Delete Ticket</button>
               </form>
-
-        {/* //<div className='st-bg'>
-         // <div className='st-card'>
-          //  <div className='top-content'>
-           //   <h1>{id}</h1>
-            //  <h1>{type}</h1>
-            //</div>
-            //<div className='bottom-content'>
-             // <h1>{description}</h1>
-             // <h1>{owner}</h1>
-             // <h1>{assigned}</h1>
-            //</div> */}
-
           </div>
         </div>
       </>
