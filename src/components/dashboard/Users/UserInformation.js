@@ -43,7 +43,11 @@ class UserInformation extends Component {
               <option value='helper'>Helper</option>
             </select>
             <button type='submit'>Edit</button>
+<<<<<<< HEAD
+            <MdDeleteForever className='delete' />
+=======
             <MdDeleteForever className='delete' onClick={this.deleteUser} />
+>>>>>>> 436f46ba923328b0e8e3827f7a12bb3e60cfb2f2
           </div>
         </div>
       </>

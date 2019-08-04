@@ -101,6 +101,7 @@ export const getSingleTicket = id => dispatch => {
 export const submitTicket = newTicketPacket => async dispatch => {
   dispatch({ type: LOADING });
 
+  const { id } = newTicketPacket;
   useAuth()
     .post('https://devdesk-backend.herokuapp.com/api/tickets/', newTicketPacket)
     .then(res => {

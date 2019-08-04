@@ -102,7 +102,7 @@ export default function devDeskReducer(state = initialState, actions) {
       return {
         ...state,
         loading: false,
-        isAuth: true
+        isAuth: true,
       };
     case GET_SINGLE_TICKET:
       return {
