@@ -10,6 +10,7 @@ import { MdDeleteForever } from 'react-icons/md';
 // import { placeholder } from '@babel/types';
 
 class TicketPage extends Component {
+<<<<<<< HEAD
   constructor() {
     super();
     this.state = {
@@ -19,6 +20,14 @@ class TicketPage extends Component {
       assigned: '',
     };
   }
+=======
+  state = {
+    type: '',
+    description: '',
+    owner: '',
+    assigned: ''
+  };
+>>>>>>> 436f46ba923328b0e8e3827f7a12bb3e60cfb2f2
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.getSingleTicket(id);
@@ -31,12 +40,21 @@ class TicketPage extends Component {
     });
   };
 
+<<<<<<< HEAD
   updateTicket = async evt => {
     evt.preventDefault();
     const id = this.props.match.params.id
     const { type, description, owner, assigned } = this.state;
 
     this.props.editTicket({id, type, description, owner, assigned});
+=======
+  updateTicket = evt => {
+    const id = this.props.match.params.id;
+    evt.preventDefault();
+    const { type, description, owner, assigned } = this.state;
+
+    this.props.editTicket(id, { type, description, owner, assigned });
+>>>>>>> 436f46ba923328b0e8e3827f7a12bb3e60cfb2f2
 
     this.setState({
       type: '',
@@ -45,6 +63,7 @@ class TicketPage extends Component {
       assigned: ''
     });
   };
+<<<<<<< HEAD
 
   deleteTicket = async evt => {
     const id = this.props.match.params.id;
@@ -53,7 +72,17 @@ class TicketPage extends Component {
       this.props.history.push('/dashboard');
     });
   };
+=======
+>>>>>>> 436f46ba923328b0e8e3827f7a12bb3e60cfb2f2
 
+  deleteTicket = async evt => {
+    const id = this.props.match.params.id;
+    console.log('ID:', id);
+    evt.preventDefault();
+    this.props.deleteTicket(id).then(() => {
+      this.props.history.push('/dashboard');
+    });
+  };
 
   render() {
     if (this.props.singleTicket === null) {
@@ -137,10 +166,7 @@ const mapStateToProps = (state, atts) => {
     loading: state.loading,
     error: state.error,
     id: state.id,
-    singleTicket: state.singleTicket,
-
-
-
+    singleTicket: state.singleTicket
   };
 };
 
