@@ -101,6 +101,7 @@ export const getSingleTicket = id => dispatch => {
 export const submitTicket = newTicketPacket => async dispatch => {
   dispatch({ type: LOADING });
 
+  const { id } = newTicketPacket;
   useAuth()
     .post('https://devdesk-backend.herokuapp.com/api/tickets/', newTicketPacket)
     .then(res => {
@@ -115,9 +116,10 @@ export const submitTicket = newTicketPacket => async dispatch => {
 export const editTicket = editedTicketPacket => async dispatch => {
   dispatch({ type: LOADING });
 
+  const { id } = editedTicketPacket;
   useAuth()
     .put(
-      'https://devdesk-backend.herokuapp.com//api/tickets/:id',
+      `https://devdesk-backend.herokuapp.com/api/users/${id}`,
       editedTicketPacket
     )
     .then(res => {
@@ -131,8 +133,10 @@ export const editTicket = editedTicketPacket => async dispatch => {
 export const editUser = userPacket => async dispatch => {
   dispatch({ type: LOADING });
 
+  const { id } = userPacket;
+
   useAuth()
-    .put('https://devdesk-backend.herokuapp.com/api/users/:id', userPacket)
+    .put(`https://devdesk-backend.herokuapp.com/api/users/${id}`, userPacket)
     .then(res => {
       dispatch({ type: EDIT_USER, payload: res.data });
     })
@@ -145,9 +149,9 @@ export const deleteUser = id => async dispatch => {
   dispatch({ type: LOADING });
 
   useAuth()
-    .delete('https://devdesk-backend.herokuapp.com/api/users/:id', id)
+    .delete(`https://devdesk-backend.herokuapp.com/api/users/${id}`, id)
     .then(res => {
-      dispatch({ type: DELETE_USER });
+      dispatch({ type: DELETE_USER, payload: res.data });
     })
     .catch(err => {
       dispatch({ type: ERROR, payload: err.response.message });
@@ -158,7 +162,7 @@ export const deleteTicket = id => async dispatch => {
   dispatch({ type: LOADING });
 
   useAuth()
-    .delete('https://devdesk-backend.herokuapp.com/api/tickets/:id', id)
+    .delete(`https://devdesk-backend.herokuapp.com/api/users/${id}`, id)
     .then(res => {
       dispatch({ type: DELETE_TICKET });
     })

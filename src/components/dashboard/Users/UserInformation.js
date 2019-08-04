@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSingleUser, editUser, deleteUser } from '../../../store/actions';
 import NavBar from '../Navigation/NavBar';
+import { MdDeleteForever } from 'react-icons/md';
 
 class UserInformation extends Component {
   componentDidMount() {
@@ -19,7 +20,7 @@ class UserInformation extends Component {
       );
     }
 
-    const { id, username } = this.props.singleUser;
+    const { id, username, authType } = this.props.singleUser;
     return (
       <>
         <NavBar />
@@ -27,6 +28,14 @@ class UserInformation extends Component {
           <div className='su-card'>
             <h1>ID: {id}</h1>
             <h1>Username: {username}</h1>
+            <select value={authType} onChange={this.selectChange} required>
+              <option value=''>Select User Type</option>
+              <option value='user'>User</option>
+              <option value='admin'>Admin</option>
+              <option value='helper'>Helper</option>
+            </select>
+            <button type='submit'>Edit</button>
+            <MdDeleteForever className='delete' />
           </div>
         </div>
       </>
